@@ -4,7 +4,7 @@ load('coe_elp','coeM')
 mu  = 398600; % mu for earth
 rng('default') % For reproducibility
 s = rng;
-eArr=.01:.05:.401
+eArr=.65;%:.05:.401
 for i=1:length(eArr)
     %% Create orbit
     inc = 30; % deg
@@ -25,9 +25,9 @@ for i=1:length(eArr)
     end
 
 
-    numbSamp=250; % set numbSamp
+    numbSamp=100; % set numbSamp
     %numbSamp=10; % set numbSamp
-    sigmaA=linspace(0,2,50); % set sigma (km) to go over
+    sigmaA=linspace(0,2,20); % set sigma (km) to go over
     TAdistA=linspace(1,60,100); % set TA dist to go over
     coe=coeM(:,1:6);
 
@@ -38,7 +38,7 @@ for i=1:length(eArr)
     offSet=1;
     %% pLots
     close all;
-    %{
+    
     figure(1)
     surf(TAdistA(offSet:end),sigmaA(2:end),rmsCir(2:end,offSet:end));
     ylabel('sigma')
@@ -60,7 +60,7 @@ for i=1:length(eArr)
     tiS=sprintf('RMS');
     title(tiS)
     colorbar
-%}
+
 
     %[rmsCir,rmsMH]
     rmsInd=[];
@@ -77,7 +77,7 @@ for i=1:length(eArr)
         end
     end
     rmsDiff=rmsCir-rmsMH;
-%{
+
     figure(3)
     surf(TAdistA(offSet:end),sigmaA(2:end),rmsBest(2:end,offSet:end));
     ylabel('sigma')
@@ -187,8 +187,8 @@ for i=1:length(eArr)
     grid on
     %}
     pntChr(i)={pntBet2};
-    strNm=sprintf('wkspc_i_%d',i);
-    save(strNm)
+    %strNm=sprintf('wkspc_i_%d',i);
+    %save(strNm)
 end
 
 figure(12)

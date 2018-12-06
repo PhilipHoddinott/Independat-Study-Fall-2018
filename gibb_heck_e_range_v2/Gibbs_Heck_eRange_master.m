@@ -4,7 +4,7 @@ load('coe_elp','coeM')
 mu  = 398600; % mu for earth
 rng('default') % For reproducibility
 s = rng;
-eArr=.0001:.05:.70001
+eArr=.20001:.01:.50001
 for i=1:length(eArr)
     %% Create orbit
     inc = 30; % deg
@@ -25,10 +25,10 @@ for i=1:length(eArr)
     end
 
 
-    numbSamp=1500; % set numbSamp
+    numbSamp=3000; % set numbSamp
     %numbSamp=10; % set numbSamp
     sigmaA=linspace(0,2,100); % set sigma (km) to go over
-    TAdistA=linspace(1,60,200); % set TA dist to go over
+    TAdistA=linspace(1,50,150); % set TA dist to go over
     coe=coeM(:,1:6);
 
     OrbType='circ';  
@@ -75,7 +75,7 @@ for i=1:length(eArr)
     ylabel('sigma')
     xlabel('delta M')
     pntChr(i)={pntBet2};
-    strNm=sprintf('_wkspc_i_%d',i);
+    strNm=sprintf('three_Vsmall_wkspc_i_%d',i);
     save(strNm)
 end
 
