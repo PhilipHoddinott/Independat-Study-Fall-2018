@@ -118,10 +118,11 @@
 \fi
 
 \begin{document}
-		\title{Gibbs}
+		\title{Comparison of Gibbs and Herrick-Gibbs Method}
 	\author{Philip Hoddinott}
 	
 	\maketitle
+	\pagenumbering{roman}
 	\thispagestyle{empty}
 	\clearpage
 	
@@ -146,7 +147,7 @@
 	\null\vfill
 	
 	\newpage
-	\setcounter{page}{1}
+	%\setcounter{page}{1}
 	\tableofcontents
 	
 	\newpage
@@ -165,6 +166,7 @@
 	% Acknowledgement
 	% ------------------------------------------------------------
 	\newpage
+	\pagenumbering{arabic}
 		\doublespacing
 
 	
@@ -180,7 +182,7 @@
 	% Introduction
 	% ------------------------------------------------------------
 	\newpage
-	\pagenumbering{arabic} % this should start the normal numberinbg
+	 % this should start the normal numberinbg
 
 	\section{Introduction}
 
@@ -190,28 +192,10 @@
 	Today the prediction of planet's orbits falls under what we would call orbital determination. Orbital determination is the estimation of an object's orbital elements from certain measurements of the object (position, velocity, angle), often taken from some ground station. Modern orbital determination employs various methods such as Lambert's method, Gauss' method, Gibbs' method, Herrick-Gibbs method. Some methods such as Gibb's and Herrick-Gibbs' require only three position measurements. Lambert's method requires two position and velocity measurements, and Gauss's method uses measurements of an object's right ascension and declination. A method of orbital determination is considered a preliminary orbit determination method if it just uses the equations of two body motion, and neglects other effects on the orbit. 
 	
 		\textcolor{red}{Put a bit more on the other methods}
-	
-	
-		Write up
-	Page or two on orbit degetrimantion
-	Angle only mtheod: gauss, ;laplace
-	Velotto textbook on Orbit deterimantion
-	3 pos vect, 3 beartin time
-	Thrre velc , IOD two
-	(no eqn)
-	Section on gibbs
-	Frame problem
-	Derive gibbs
-	Show how you go through problem set up to the end
-	Talk about now, assses how well gibbs does for ODE, diff ecc, diff noise level
-	Talk about results
-	Derivation of gibbs should be a page to two pages (plus figures)
-	Harrit gibbs method (try to take a look at this) (it’s a taylor series expansion of orbit around)
-	Nice plots
-	Get a pdf of report by last day of class
-	Mean  anonly, not true for circ
+
 	%\subsection{Orbit Determination}
 	%
+	\newpage
 	\section{Gibbs method}
 	Gibbs method was developed by Josiah Willard Gibbs\cite{gibbsBio}, who was famous for his application of vectorized math to thermodynamics. Gibbs method works off having three measurements of the distance to an object at three different times. Thus, assume we have the following position vectors:
 	\begin{equation}
@@ -387,8 +371,7 @@ The we write the sum of these equations as
 	\begin{equation}
 	\mathbf { v } = \sqrt { \frac { \mu } { N D } } \left( \frac { \mathbf { D } \times \mathbf { r } } { r } + \mathbf { S } \right)
 	\end{equation}
-	 be described as 
-	These measurements 
+	 Now from this equation the velocity vector may be computed. 
 	\iffalse
 	\subsection{Gibbs method Algorithm}
 	These steps follow the derication og gibbs method from Orbital Mechanics for Engineering Students \cite{curtis2013_gibbs}. A more detailed derivation may be found in the appendix
@@ -442,12 +425,77 @@ The we write the sum of these equations as
 	NOTE make these normal fractions
 	\fi
 	\section{Herrick-Gibbs Method}
-	The obvious problem with Gibbs method is what if the measured vectors are close to each other, for example in a single pass over a ground station. Herrick Gibbs is one such solution to this problem, it is a method of orbital determination that requires three position measurements, and their respective times. It then uses a Taylor series expansion. Because it is a taylor series, it is not as robust as Gibbs method.
+	The obvious problem with Gibbs method is what if the measured vectors are close to each other, for example in a single pass over a ground station. Herrick Gibbs is one such solution to this problem, it is a method of orbital determination that requires three position measurements, and their respective times. It then uses a Taylor series expansion. Because it is a Taylor series, it is not as robust as Gibbs method. According to Vallado, it is best for under 5 degrees of spereation between position vectors \cite{vallado2007fundamentals}.
 	
-	Gibbs method is best for under 5(degree symbol)
+	\section{Derivation of Herrick-Gibbs Method}
+	The derivation of the Herrick-Gibbs method in this section is based off of Kaushick's derivation\cite{Kaushick}, but the notation has been changed to be consistent with the notation used thus far in this paper. Herrick Gibbs begins by using the Taylor series to expand the position and the velocity vectors out by 
+	\begin{equation}
+	\begin{array} { l } { \mathbf { r } = \mathbf { a } _ { 0 } + t \mathbf { a } _ { 1 } + t ^ { 2 } \mathbf { a } _ { 2 } + t ^ { 3 } \mathbf { a } _ { 3 } + t ^ { 4 } \mathbf { a } _ { 4 } + t ^ { 5 } \mathbf { a } _ { 5 } } \\ { \mathbf { v } = \mathbf { a } _ { 1 } + 2 t \mathbf { a } _ { 2 } + 3 t ^ { 2 } \mathbf { a } _ { 3 } + 4 t ^ { 3 } \mathbf { a } _ { 4 } + 5 t ^ { 4 } \mathbf { a } _ { 5 } } \end{array}
+	\end{equation}
+	Where the $a_n$ terms are unknowns from the power series. The equation for acceleration in a two body system then becomes
+	\begin{equation}
+	- \frac { \mu } { r ^ { 3 } } \mathbf { r } = 2 \mathbf { a } _ { 2 } + 6 t \mathbf { a } _ { 3 } + 12 t ^ { 2 } \mathbf { a } _ { 4 } + 20 t ^ { 3 } \mathbf { a } _ { 5 }
+	\end{equation}
+	The time between the observations is defined as 
+	\begin{equation}
+	\begin{array} { l } { \Delta t _ { 32 } = t _ { 3 } - t _ { 2 } } \\ { \Delta t _ { 31 } = t _ { 3 } - t _ { 1 } } \\ { \Delta t _ { 21 } = t _ { 2 } - t _ { 1 } } \end{array}
+	\end{equation}
+	The position vectors may be now written as 
+	\begin{equation}
+	\begin{array} { l }
+	{ \mathbf { r } _ { 2 } = \mathbf { a } _ { 0 } } \\ 
+	 { \mathbf { r } _ { 1 } = \mathbf { r } _ { 2 } - \Delta t _ { 21 } \mathbf { a } _ { 1 } + \Delta t _ { 21 } ^ { 2 } \mathbf { a } _ { 2 } - \Delta t _ { 21 } ^ { 3 } \mathbf { a } _ { 3 } + \Delta t _ { 12 } ^ { 4 } \mathbf { a } _ { 4 } - \Delta t _ { 21 } ^ { 5 } \mathbf { a } _ { 5 } } \\ 
+	
+	{ \mathbf { r } _ { 3 } = \mathbf { r } _ { 2 } - \Delta t _ { 32 } \mathbf { a } _ { 1 } + \Delta t _ { 32 } ^ { 2 } \mathbf { a } _ { 2 } - \Delta t _ { 32 } ^ { 3 } \mathbf { a } _ { 3 } + \Delta t _ { 32 } ^ { 4 } \mathbf { a } _ { 1 } - \Delta t _ { 32 } ^ { 5 } \mathbf { a } _ { 5 } } \\ 	
+	\end{array}
+	\end{equation}
+	The velocity and accleration vectors may be now written as
+	 \begin{equation}
+	 \begin{aligned} \mathbf { v } _ { 2 } & = \mathbf { a } _ { 1 } \\ - \frac { \mu } { r _ { 1 } ^ { 3 } } \mathbf { r } _ { 1 } & = 2 \mathbf { a } _ { 2 } - 6 \Delta t _ { 21 } \mathbf { a } _ { 3 } + 12 \Delta t _ { 21 } ^ { 2 } \mathbf { a } _ { 4 } - 20 \Delta t _ { 21 } ^ { 3 } \mathbf { a } _ { 5 } \\ - \frac { \mu } { r _ { 2 } ^ { 3 } } \mathbf { r } _ { 2 } & = 2 \mathbf { a } _ { 2 } \\ - \frac { \mu } { r _ { 3 } ^ { 3 } } \mathbf { r } _ { 3 } & = 2 \mathbf { a } _ { 2 } + 6 \Delta t _ { 32 } \mathbf { a } _ { 3 } + 12 \Delta t _ { 32 } ^ { 2 } \mathbf { a } _ { 4 } + 20 \Delta t _ { 32 } ^ { 3 } \mathbf { a } _ { 5 } \end{aligned}
+	 \end{equation}
+	
+	Solving for the $a_n$ terms gives the following equation
+	
+	\begin{equation}
+	\begin{aligned} \mathbf { v } _ { 2 } = - \Delta t _ { 32 } \left[ \frac { 1 } { \Delta t _ { 21 } \Delta t _ { 31 } } + \frac { \mu } { 12 r _ { 1 } ^ { 3 } } \right] \mathbf { r } _ { 1 } + \left( \Delta t _ { 32 } - \Delta t _ { 21 } \right) & \left[ \frac { 1 } { \Delta t _ { 21 } \Delta t _ { 32 } } + \frac { \mu } { 12 r _ { 2 } ^ { 3 } } \right] \mathbf { r } _ { 2 } \\ + \Delta t _ { 21 } & \frac { 1 } { \Delta t _ { 32 } \Delta t _ { 31 } } + \frac { \mu } { 12 r _ { 3 } ^ { 3 } } ] \mathbf { r } _ { 3 } \end{aligned}
+	\end{equation}
+	
+	\textcolor{red}{To do, expand on this derivation, reverance Vallado}
+	\iffalse
+	The derivation of the Herrick-Gibbs method in this section is based off of Vallado's derivation \cite{vallado2007fundamentals}, but the notation has been changed to be consistent with the notation used thus far in this paper. 
+	
+		Herrick Gibbs begins by using the Taylor series to expand the position vector out by 
+		\begin{equation}
+		\mathbf{r(t)}=\mathbf{r_2}+\mathbf{\dot{r}_2} (t-t_2) + \mathbf{\ddot{r}_2} \frac{(t-t_2)^2}{2!}+ \mathbf{\dddot{r}_2} \frac{(t-t_2)^3}{3!}+ \mathbf{{r_2}}^{(iv)} \frac{(t-t_2)^4}{4!}+\dots
+		\end{equation}
+		
+		The time between the observations is defined as 
+		\begin{equation}
+		\begin{array} { l } { \Delta t _ { 32 } = t _ { 3 } - t _ { 2 } } \\ { \Delta t _ { 31 } = t _ { 3 } - t _ { 1 } } \\ { \Delta t _ { 21 } = t _ { 2 } - t _ { 1 } } \end{array}
+		\end{equation}
+		The position vectors may be now written as 
+		
+		\begin{equation}
+		\mathbf{r_1}=\mathbf{r_2}+\mathbf{\dot{r}_2} (\Delta t _ { 21 } ) + \mathbf{\ddot{r}_2} \frac{(t-t_2)^2}{2!}+ \mathbf{\dddot{r}_2} \frac{(t-t_2)^3}{3!}+ \mathbf{{r_2}}^{(iv)} \frac{(t-t_2)^4}{4!}+\dots
+		\end{equation}
+
+	
+	
+	Herrick Gibbs begins by using the Taylor series to expand the position and the velocity vectors out by 
+	\begin{equation}
+	\begin{array} { l } { \mathbf { r } = \mathbf { a } _ { 0 } + t \mathbf { a } _ { 1 } + t ^ { 2 } \mathbf { a } _ { 2 } + t ^ { 3 } \mathbf { a } _ { 3 } + t ^ { 4 } \mathbf { a } _ { 4 } + t ^ { 5 } \mathbf { a } _ { 5 } } \\ { \mathbf { v } = \mathbf { a } _ { 1 } + 2 t \mathbf { a } _ { 2 } + 3 t ^ { 2 } \mathbf { a } _ { 3 } + 4 t ^ { 3 } \mathbf { a } _ { 4 } + 5 t ^ { 4 } \mathbf { a } _ { 5 } } \end{array}
+	\end{equation}
+	
+	
+	
+
+	
+	difference in time for the 
+	\fi
 	\section{Analysis of Methods}
-	\textcolor{red}{Put in Orbital Parameters}
-	The first parameter investigated was the separation of position measurements.  Vallado\cite{vallado2007fundamentals} states that Herrik-Gibbs is only accurate for measurements taken within 5 degrees of the mean anomaly, however that seems Dependant on other factors. The other parameter was the noise, how accurate the position measurements were. 
+	\textcolor{red}{To Do: Put in Orbital Parameters for the orbit I am using}
+	
+	The first parameter investigated was the separation of position measurements.  Vallado\cite{vallado2007fundamentals} states that Herrick-Gibbs is only accurate for measurements taken within 5 degrees of the mean anomaly, however that seems Dependant on other factors. The other parameter was the noise, how accurate the position measurements were. 
 	
 	The process for each test goes as follows:
 	\begin{itemize}
@@ -505,7 +553,7 @@ The we write the sum of these equations as
 	I think I should just cut down the size untill I don't have to deal with the asymtote anymore
 	Look at what the fund book says for when they are good or no
 	
-	\section{Process}
+	\section{Results}
 	Explain I have a staring orbit
 	I go through it for diffrent mean anamolys
 	With a a noise
@@ -516,15 +564,112 @@ The we write the sum of these equations as
 	
 	Purpose of this si not so much the mean anamoly change, but the amount of noise and samples?
 	\fi
-	\section{Results}
+	These results will be used as a baseline
 	
-	\section{Comparison of Methods}
+	\subsection{Analysis of Gibbs Method at various eccentricities}
+	The following plots come from Gibb's method at an eccentricity of $e=0.05,0.1,0.15$
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{gibbs_e_05}
+		\caption{Gibbs method for an eccentricity of 0.05 vs noise and distance between measurements.}
+		\label{fig:gibbse05}
+	\end{figure}
+
+	\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{gibbs_e_1}
+	\caption{Gibbs method for an eccentricity of 0.1 vs noise and distance between measurements.}
+	\label{fig:gibbse1}
+\end{figure}
+
+	\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{gibbs_e_15}
+	\caption{Gibbs method for an eccentricity of 0.15 vs noise and distance between measurements.}
+	\label{fig:gibbse15}
+\end{figure}
 	
-	\section{Conclusion}
-	The goal of this thesis was to create a program that can download the latest orbital elements needed to calculate the real time locations of space debris, given user inputted parameters. The information would be usable to someone who has taken a basic spaceflight mechanics class. 
+	\newpage
+	\subsection{Analysis of Herrick-Gibbs Method at various eccentricities}
+		The following plots come from Herrick-Gibb's method at an eccentricity of $e=0.05,0.1,0.15$
+		\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{herrickgibbs_e_05}
+		\caption{Herrick-Gibbs method for an eccentricity of 0.05 vs noise and distance between measurements.}
+		\label{fig:herrickgibbse05}
+	\end{figure}
 	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{herrickgibbs_e_1}
+		\caption{Herrick-Gibbs method for an eccentricity of 0.1 vs noise and distance between measurements.}
+		\label{fig:herrickgibbse1}
+	\end{figure}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{herrickgibbs_e_15}
+		\caption{Herrick-Gibbs method for an eccentricity of 0.15 vs noise and distance between measurements.}
+		\label{fig:herrickgibbse15}
+	\end{figure}
+	\subsection{Comparison of methods}
+	
+	From the previous sections it can be seen  that Gibbs method improves as the distance between observations increases and Herrick-Gibbs method improves up to a point, then decreases in accuracy. We now compare the methods against each other in the following figures 
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{bothMethods_e_05}
+		\caption{Both Gibbs and Herrick-Gibbs at an eccentricity of 0.05}
+		\label{fig:bothmethodse05}
+	\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{bestMethods_e_05}
+		\caption{The best possible measurement from either method at an eccentricity of 0.05}
+		\label{fig:bestmethodse05}
+	\end{figure}
+
+	\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{bothMethods_e_1}
+	\caption{Both Gibbs and Herrick-Gibbs at an eccentricity of 0.1}
+	\label{fig:bothmethodse1}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{bestMethods_e_1}
+	\caption{The best possible measurement from either method at an eccentricity of 0.1}
+	\label{fig:bestmethodse1}
+\end{figure}
+	\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{bothMethods_e_15}
+	\caption{Both Gibbs and Herrick-Gibbs at an eccentricity of 0.15}
+	\label{fig:bothmethodse15}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{bestMethods_e_15}
+	\caption{The best possible measurement from either method at an eccentricity of 0.15}
+	\label{fig:bestmethodse15}
+\end{figure}
+
+It becomes clear that Gibbs method remains robust as eccentricity increases, while Herrick-Gibbs does not handle the changes in eccentricity as well. While a circular orbit had Herrick-Gibbs beat Gibbs method for up to 35 degrees between measurements, now Vallado's measurement of 5 degrees seperation has proven accurate for an orbit with an eccentricity of 0.15.\par 
+
+
+Figure \ref{fig:eccecomp} plots the line where Gibbs method becomes better than Herrick-Gibbs. This provides a more clear demonstration of how as the eccentricity increases, the area  where Herrick-Gibbs is the best method decreases. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{ecceComp}
+	\caption{}
+	\label{fig:eccecomp}
+\end{figure}
+
+
+
 
 	
+	\section{Conclusion}
+	\textcolor{red}{ToDo: Finish Conclusions, Upload plots when computer is finished running ,finsh derivation HeckGibb}
 		
 		%--------------------------------------
 		% References
@@ -539,8 +684,8 @@ The we write the sum of these equations as
 		%-----------------------------------------------------------
 		\newpage
 		\singlespacing
-		\section*{Appendix 1 -derivation of gibbs}
-		\section*{Appendix 2 - MATLAB code}
+%		\section*{Appendix 1 -derivation of gibbs}
+		\section*{Appendix 1 - MATLAB code}
 		\addcontentsline{toc}{section}{Appendix}
 		
 		\lstset{language=Matlab,%

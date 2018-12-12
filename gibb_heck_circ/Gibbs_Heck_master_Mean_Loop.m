@@ -1,5 +1,8 @@
+%% Gibbs and Herrick-Gibbs Main Code
+% By Philip Hoddinott
+%% Setup
 clear all; close all;
-%% Do my best to remove for loops to make vectoried
+%% Load variables
 load('coe_elp','coeM')
 mu  = 398600; % mu for earth
 rng('default') % For reproducibility
@@ -7,214 +10,261 @@ s = rng;
 
 
 loopCount=1;
-eArr=0;%:.05:.5;
+eArr=0.005*3:.005:.2;
+load('wkspcNew_1.mat','MAdistA','sigmaA','rmsCir');
+   
+MAdistA1=MAdistA;
+sigmaA1=sigmaA;
+rmsCir1=rmsCir;
+    
+
 for loopCount=1:length(eArr)
     e=eArr(loopCount);
-%% Create orbit
-inc = 30; % deg
-RAAN = 40;% deg
-%e = 0.3; % ecc for now, e = 0, e = 1.2
-%e=0.6;
-%e=0.1;
-%e=0;
-w = 70;% deg, arg of perapsis
-rp = 7178.1; % km 
+    %% Create orbit
+    inc = 30; % deg
+    RAAN = 40;% deg
+    %e = 0.3; % ecc for now, e = 0, e = 1.2
+    %e=0.6;
+    %e=0.1;
+    %e=0;
+    w = 70;% deg, arg of perapsis
+    rp = 7178.1; % km 
 
-a=rp*(1-e); % get semi major
-ra=a/(1+e); % get appoapsis
-h=sqrt(a*(1-e^2)*mu); % get momentum
-TAd=[47,107,138]; % TA
-%% Note in hindsight this is not super nessisary
-for i=1:3 % add given TAs
-    TA=TAd(i);
-    coeM(i,:)=[h e RAAN inc w TA a];
-end
-
-
-numbSamp=1000; % set numbSamp
-%sigmaA=linspace(0,.5,40); % set sigma (km) to go over
-%TAdistA=linspace(35,42,1600); % set TA dist to go over
-TAdistA=linspace(1,50,550); % set TA dist to go over
-
-%sigmaA=linspace(0,2,400); % set sigma (km) to go over
-sigmaA=linspace(0,10,120); % set sigma (km) to go over
-%TAdistA=linspace(1,60,800); % set TA dist to go over
-OrbType='circ';  
-coe=coeM(:,1:6);
-
-%EdistA=atan(
-MAdistA=TAdistA;
-
-for i=1:length(MAdistA)
-    Earr(i)=kepler_E(e,MAdistA(i)*pi/180);
-end
-TAdistAReal=2*atan(sqrt((1+e)/(1-e))*tan(Earr/2));
-TAdistA=TAdistAReal*180/pi;
-%
-%{
-OrbType='circ';  
-[rmsGv2,rmsHGv2,rmsME] = checkDisc(numbSamp,sigmaA,TAdistA,coeM,mu,OrbType,rp);
-
-%% Plot
-close all;
-offSet=1;
-figure(1)
-surf(TAdistA(offSet:end),sigmaA(2:end),rmsGv2(2:end,offSet:end));
-ylabel('\sigma')
-xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
-zlabel('RMS')
-%set(gca,'zscale','log')
-tiS=sprintf('RMS');
-title(tiS)
-colorbar
-
-figure(2)
-surf(TAdistA(offSet:end),sigmaA(2:end),rmsHGv2(2:end,offSet:end));
-ylabel('\sigma')
-xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
-zlabel('RMS')
-%set(gca,'zscale','log')
-tiS=sprintf('RMS');
-title(tiS)
-colorbar
-
-figure(3)
-surf(TAdistA(offSet:end),sigmaA(2:end),rmsME(2:end,offSet:end));
-ylabel('\sigma')
-xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
-zlabel('RMS')
-%set(gca,'zscale','log')
-tiS=sprintf('RMS');
-title(tiS)
-colorbar
-
-keyboard
-%}
-%[rmsCir,rmsMH,rmsGv2,rmsHGv2] = RMS_G_HG(numbSamp,sigmaA,TAdistA,coeM,mu,OrbType,rp,MAdistA);
-load('wkspcFnl.mat')
-rmsEc=rmsCir;
-offSet=1;
-%% pLots
-%close all;
-%close(101);
-
-figure(1+4*(loopCount-1))
-surf(MAdistA(offSet:end),sigmaA(2:end),rmsCir(2:end,offSet:end),'FaceColor','interp')%, 'EdgeColor', 'none');
-ylabel('\sigma (km)')
-xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
-zlabel('RMS - a ')
-set(gca,'zscale','log')
-tiS=sprintf('Gibbs Method RMS-a, ecc = %.3e',e);
-title(tiS)
-set(gca,'ColorScale','log')
-colorbar
-zlim([0.1 10e4])
-caxis([.1 10e4])
-
-figure(2+4*(loopCount-1))
-surf(MAdistA(offSet:end),sigmaA(2:end),rmsMH(2:end,offSet:end),'FaceColor','interp')%, 'EdgeColor', 'none')
-ylabel('\sigma (km)')
-xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
-zlabel('RMS-a')
-set(gca,'zscale','log')
-tiS=sprintf('Herrick Gibbs RMS-a, ecc = %.3e',e);
-title(tiS)
-set(gca,'ColorScale','log')
-colorbar
+    a=rp*(1-e); % get semi major
+    ra=a/(1+e); % get appoapsis
+    h=sqrt(a*(1-e^2)*mu); % get momentum
+    TAd=[47,107,138]; % TA
+    %% Note in hindsight this is not super nessisary
+    for i=1:3 % add given TAs
+        TA=TAd(i);
+        coeM(i,:)=[h e RAAN inc w TA a];
+    end
 
 
+    numbSamp=50; % set numbSamp
+    %sigmaA=linspace(0,.5,40); % set sigma (km) to go over
+    %TAdistA=linspace(35,42,1600); % set TA dist to go over
+    TAdistA=linspace(1,35,35*3); % set TA dist to go over
 
-rmsInd=[];
-rmsBest=[];
-for i=1:length(rmsCir(:,1))
-    for j=1:length(rmsCir(1,:))
-        if rmsCir(i,j)>rmsMH(i,j)
-            rmsBest(i,j)=rmsMH(i,j);
-            rmsInd(i,j)=1; % for HH
-            rmsBestV2(i,j)=rmsHGv2(i,j);
-        else
-            rmsBest(i,j)=rmsCir(i,j);
-            rmsBestV2(i,j)=rmsGv2(i,j);
-            rmsInd(i,j)=0; % for gib
+    %sigmaA=linspace(0,2,400); % set sigma (km) to go over
+    sigmaA=linspace(0,2,50); % set sigma (km) to go over
+    %TAdistA=linspace(1,60,800); % set TA dist to go over
+    OrbType='circ';  
+    coe=coeM(:,1:6);
+
+    %EdistA=atan(
+    MAdistA=TAdistA;
+
+    for i=1:length(MAdistA)
+        Earr(i)=kepler_E(e,MAdistA(i)*pi/180);
+    end
+    TAdistAReal=2*atan(sqrt((1+e)/(1-e))*tan(Earr/2));
+    TAdistA=TAdistAReal*180/pi;
+    %
+    %{
+    OrbType='circ';  
+    [rmsGv2,rmsHGv2,rmsME] = checkDisc(numbSamp,sigmaA,TAdistA,coeM,mu,OrbType,rp);
+
+    %% Plot
+    close all;
+    offSet=1;
+    figure(1)
+    surf(TAdistA(offSet:end),sigmaA(2:end),rmsGv2(2:end,offSet:end));
+    ylabel('\sigma')
+    xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
+    zlabel('RMS')
+    %set(gca,'zscale','log')
+    tiS=sprintf('RMS');
+    title(tiS)
+    colorbar
+
+    figure(2)
+    surf(TAdistA(offSet:end),sigmaA(2:end),rmsHGv2(2:end,offSet:end));
+    ylabel('\sigma')
+    xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
+    zlabel('RMS')
+    %set(gca,'zscale','log')
+    tiS=sprintf('RMS');
+    title(tiS)
+    colorbar
+
+    figure(3)
+    surf(TAdistA(offSet:end),sigmaA(2:end),rmsME(2:end,offSet:end));
+    ylabel('\sigma')
+    xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
+    zlabel('RMS')
+    %set(gca,'zscale','log')
+    tiS=sprintf('RMS');
+    title(tiS)
+    colorbar
+
+    keyboard
+    %}
+    [rmsCir,rmsMH,rmsGv2,rmsHGv2] = RMS_G_HG(numbSamp,sigmaA,TAdistA,coeM,mu,OrbType,rp,MAdistA);
+    str=['wkspcNew_short_',num2str(loopCount)];
+    save(str)
+    %load('wkspcFnl.mat')
+    rmsEc=rmsCir;
+    offSet=1;
+    %% pLots
+    %close all;
+    %close(101);
+
+    figure(1+5*(loopCount-1))
+    surf(MAdistA(offSet:end),sigmaA(2:end),rmsCir(2:end,offSet:end),'FaceColor','interp')%, 'EdgeColor', 'none');
+    ylabel('\sigma (km)')
+    xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
+    zlabel('RMS - a ')
+    set(gca,'zscale','log')
+    tiS=sprintf('Gibbs Method RMS-a, ecc = %.3e',e);
+    title(tiS)
+    set(gca,'ColorScale','log')
+    colorbar
+    zlim([0.1 10e4])
+    caxis([.1 10e4])
+
+
+    figure(2+5*(loopCount-1))
+    surf(MAdistA(offSet:end),sigmaA(2:end),rmsMH(2:end,offSet:end),'FaceColor','interp')%, 'EdgeColor', 'none')
+    ylabel('\sigma (km)')
+    xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
+    zlabel('RMS-a')
+    set(gca,'zscale','log')
+    tiS=sprintf('Herrick Gibbs RMS-a, ecc = %.3e',e);
+    title(tiS)
+    set(gca,'ColorScale','log')
+    colorbar
+
+
+
+    rmsInd=[];
+    rmsBest=[];
+    for i=1:length(rmsCir(:,1))
+        for j=1:length(rmsCir(1,:))
+            if rmsCir(i,j)>rmsMH(i,j)
+                rmsBest(i,j)=rmsMH(i,j);
+                rmsInd(i,j)=1; % for HH
+                rmsBestV2(i,j)=rmsHGv2(i,j);
+            else
+                rmsBest(i,j)=rmsCir(i,j);
+                rmsBestV2(i,j)=rmsGv2(i,j);
+                rmsInd(i,j)=0; % for gib
+            end
         end
     end
-end
-rmsDiff=rmsCir-rmsMH;
+    rmsDiff=rmsCir-rmsMH;
 
-z1=rmsCir(2:end,offSet:end);
-z2=rmsMH(2:end,offSet:end);
-x=MAdistA(offSet:end);
-y=sigmaA(2:end);
-%axis vis3d
-% Take the difference between the two surface heights and find the contour
-% where that surface is zero.
-zdiff = z1 - z2;
-C = contours(x, y, zdiff, [0 0]);
-% Extract the x- and y-locations from the contour matrix C.
-xL = C(1, 2:end);
-yL = C(2, 2:end);
-% Interpolate on the first surface to find z-locations for the intersection
-% line.
-zL = interp2(x, y, z1, xL, yL);
-% Visualize the line.
-
-
-figure(3+4*(loopCount-1))
-surf(MAdistA(offSet:end),sigmaA(2:end),rmsBest(2:end,offSet:end),'FaceColor','interp')%, 'EdgeColor', 'none');
-ylabel('\sigma (km)')
-xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
-zlabel('RMS-a')
-set(gca,'zscale','log')
-tiS=sprintf('Best RMS-a, ecc = %.3e',e);
-title(tiS)
-set(gca,'ColorScale','log')
-colorbar
-line(xL, yL, zL, 'Color', 'r', 'LineWidth', 4);
+    z1=rmsCir(2:end,offSet:end);
+    z2=rmsMH(2:end,offSet:end);
+    x=MAdistA(offSet:end);
+    y=sigmaA(2:end);
+    %axis vis3d
+    % Take the difference between the two surface heights and find the contour
+    % where that surface is zero.
+    zdiff = z1 - z2;
+    C = contours(x, y, zdiff, [0 0]);
+    % Extract the x- and y-locations from the contour matrix C.
+    xL = C(1, 2:end);
+    yL = C(2, 2:end);
+    % Interpolate on the first surface to find z-locations for the intersection
+    % line.
+    zL = interp2(x, y, z1, xL, yL);
+    % Visualize the line.
 
 
-figure(4+4*(loopCount-1))
-%hold on;
-% Define the input grid
-%[x, y] = meshgrid(linspace(-1, 1));
-% Calculate the two surfaces
-%z1 = y.^2 + 2*x;
-%z2 = 2*y.^3 - x.^2;
-% Visualize the two surfaces
-
-%surface(MAdistA(offSet:end),sigmaA(2:end),z1,'FaceColor', [0.5 1.0 0.5], 'EdgeColor', 'none');
-
-%surf(MAdistA(offSet:end),sigmaA(2:end),z2, 'FaceColor', [1.0 0.5 0.0], 'EdgeColor', 'none');
-surface(MAdistA(offSet:end),sigmaA(2:end),z1,'FaceColor','interp')%, 'EdgeColor', 'none');
-
-set(gca,'ColorScale','log')
-colorbar
-zlim([0.1 10e4])
-caxis([.1 10e4])
-hold on
-%zlim([0.1 10e4])
-%colorbar
-%hold on
-%caxis(([0.1 10e4]));
-surf(MAdistA(offSet:end),sigmaA(2:end),z2,'FaceColor','interp')%, 'EdgeColor', 'none');
+    figure(3+5*(loopCount-1))
+    surf(MAdistA(offSet:end),sigmaA(2:end),rmsBest(2:end,offSet:end),'FaceColor','interp')%, 'EdgeColor', 'none');
+    ylabel('\sigma (km)')
+    xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
+    zlabel('RMS-a')
+    set(gca,'zscale','log')
+    tiS=sprintf('Best RMS-a, ecc = %.3e',e);
+    title(tiS)
+    set(gca,'ColorScale','log')
+    colorbar
+    line(xL, yL, zL, 'Color', 'r', 'LineWidth', 4);
 
 
-ylabel('\sigma (km)')
-xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
-zlabel('RMS - a ')
-set(gca,'zscale','log')
-tiS=sprintf('Both Methods RMS-a, ecc = %.3f',e);
-title(tiS)
-%colorbar
-grid on
+    figure(4+5*(loopCount-1))
+    %hold on;
+    % Define the input grid
+    %[x, y] = meshgrid(linspace(-1, 1));
+    % Calculate the two surfaces
+    %z1 = y.^2 + 2*x;
+    %z2 = 2*y.^3 - x.^2;
+    % Visualize the two surfaces
 
-%surface(x, y, z1, 'FaceColor', [0.5 1.0 0.5], 'EdgeColor', 'none');
-%surface(x, y, z2, 'FaceColor', [1.0 0.5 0.0], 'EdgeColor', 'none');
-%view(3); 
-%camlight; 
-view(17,22)
+    %surface(MAdistA(offSet:end),sigmaA(2:end),z1,'FaceColor', [0.5 1.0 0.5], 'EdgeColor', 'none');
+
+    %surf(MAdistA(offSet:end),sigmaA(2:end),z2, 'FaceColor', [1.0 0.5 0.0], 'EdgeColor', 'none');
+    surface(MAdistA(offSet:end),sigmaA(2:end),z1,'FaceColor','interp')%, 'EdgeColor', 'none');
+
+    set(gca,'ColorScale','log')
+    colorbar
+    zlim([0.1 10e4])
+    caxis([.1 10e4])
+    hold on
+    %zlim([0.1 10e4])
+    %colorbar
+    %hold on
+    %caxis(([0.1 10e4]));
+    surf(MAdistA(offSet:end),sigmaA(2:end),z2,'FaceColor','interp')%, 'EdgeColor', 'none');
 
 
-line(xL, yL, zL, 'Color', 'r', 'LineWidth', 4);
+    ylabel('\sigma (km)')
+    xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
+    zlabel('RMS - a ')
+    set(gca,'zscale','log')
+    tiS=sprintf('Both Methods RMS-a, ecc = %.3f',e);
+    title(tiS)
+    %colorbar
+    grid on
+
+    %surface(x, y, z1, 'FaceColor', [0.5 1.0 0.5], 'EdgeColor', 'none');
+    %surface(x, y, z2, 'FaceColor', [1.0 0.5 0.0], 'EdgeColor', 'none');
+    %view(3); 
+    %camlight; 
+    view(17,22)
+
+
+    line(xL, yL, zL, 'Color', 'r', 'LineWidth', 4);
+    
+    xLM{loopCount}=xL;
+    yLM{loopCount}=yL;
+    zLM{loopCount}=zL;
+    
+    
+    figure(5+5*(loopCount-1))
+    iPhilinc=0;
+    hold on
+    
+    surf(MAdistA1(offSet:end),sigmaA1(2:end),rmsCir1(2:end,offSet:end),'FaceColor','interp')%, 'EdgeColor', 'none');
+    ylabel('\sigma (km)')
+    xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
+    zlabel('RMS - a ')
+    set(gca,'zscale','log')
+    tiS=sprintf('Gibbs Method RMS-a, ecc = %.3e',e);
+    %title(tiS)
+    set(gca,'ColorScale','log')
+    colorbar
+    zlim([0.1 10e4])
+    caxis([.1 10e4])
+    lgndcr(1)={'SurfacePlot of Gibbs method'};
+    iPhilinc=iPhilinc+1;
+    
+    myColorMap = jet(8); 
+    for iPhil=1:loopCount
+        %line(cell2mat(xLM(iPhil)), cell2mat(yLM(iPhil)), cell2mat(zLM(iPhil)), 'Color', 'r', 'LineWidth', 4);
+        line(cell2mat(xLM(iPhil)), cell2mat(yLM(iPhil)), cell2mat(zLM(iPhil)),'Color',myColorMap(iPhil,:),'LineWidth', 4);
+        lgndcr(iPhil+iPhilinc)={['e = ',num2str(eArr(iPhil))]};
+    end
+    legend(lgndcr)
+     view(17,22)
+    drawnow
+    if loopCount==8    
+    keyboard
+    end
+    
 end
 %save('wksipLp3')
 

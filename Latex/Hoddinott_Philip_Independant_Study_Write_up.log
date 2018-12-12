@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.16)  12 DEC 2018 11:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.2.16)  12 DEC 2018 16:43
 entering extended mode
 **./Hoddinott_Philip_Independant_Study_Write_up.tex
 (Hoddinott_Philip_Independant_Study_Write_up.tex
@@ -1036,7 +1036,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[1] (Hoddinott_Philip_Independant_Study_Write_up.lot)
+[3] (Hoddinott_Philip_Independant_Study_Write_up.lot)
 \tf@lot=\write4
 \openout4 = `Hoddinott_Philip_Independant_Study_Write_up.lot'.
 
@@ -1045,33 +1045,142 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 \tf@lof=\write5
 \openout5 = `Hoddinott_Philip_Independant_Study_Write_up.lof'.
 
- [2] [3] [1] [2] [3] [4]
-[5] [6] [7]
-<circularGibbs.png, id=50, 1445.4pt x 704.6325pt>
+ [4] [1] [2] [3] [4] [5]
+[6] [7] [8] [9]
+<circularGibbs.png, id=54, 1445.4pt x 704.6325pt>
 File: circularGibbs.png Graphic file (type png)
 <use circularGibbs.png>
-Package pdftex.def Info: circularGibbs.png  used on input line 472. on input li
-ne 472.
+Package pdftex.def Info: circularGibbs.png  used on input line 520. on input li
+ne 520.
 Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
-e 472.
-<circularHerrickGibbs.png, id=51, 1445.4pt x 704.6325pt>
+e 520.
+ [10]
+<circularHerrickGibbs.png, id=59, 1445.4pt x 704.6325pt>
 File: circularHerrickGibbs.png Graphic file (type png)
 <use circularHerrickGibbs.png>
-Package pdftex.def Info: circularHerrickGibbs.png  used on input line 479. on i
-nput line 479.
+Package pdftex.def Info: circularHerrickGibbs.png  used on input line 527. on i
+nput line 527.
 Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
-e 479.
-<bestMethodsCirc.png, id=52, 1445.4pt x 704.6325pt>
+e 527.
+<bestMethodsCirc.png, id=60, 1445.4pt x 704.6325pt>
 File: bestMethodsCirc.png Graphic file (type png)
 <use bestMethodsCirc.png>
-Package pdftex.def Info: bestMethodsCirc.png  used on input line 485. on input 
-line 485.
+Package pdftex.def Info: bestMethodsCirc.png  used on input line 533. on input 
+line 533.
 Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
-e 485.
- [8 <./circularGibbs.png (PNG copy)>] [9 <./circularHerrickGibbs.png (PNG copy)
-> <./bestMethodsCirc.png (PNG copy)>]
-(Hoddinott_Philip_Independant_Study_Write_up.bbl) [10]
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+e 533.
+<gibbs_e_05.png, id=61, 1445.4pt x 704.6325pt>
+File: gibbs_e_05.png Graphic file (type png)
+<use gibbs_e_05.png>
+Package pdftex.def Info: gibbs_e_05.png  used on input line 573. on input line 
+573.
+Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
+e 573.
+<gibbs_e_1.png, id=62, 1445.4pt x 704.6325pt>
+File: gibbs_e_1.png Graphic file (type png)
+<use gibbs_e_1.png>
+Package pdftex.def Info: gibbs_e_1.png  used on input line 580. on input line 5
+80.
+Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
+e 580.
+<gibbs_e_15.png, id=63, 1445.4pt x 704.6325pt>
+File: gibbs_e_15.png Graphic file (type png)
+<use gibbs_e_15.png>
+Package pdftex.def Info: gibbs_e_15.png  used on input line 587. on input line 
+587.
+Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
+e 587.
+ [11 <./circularGibbs.png (PNG copy)> <./circularHerrickGibbs.png (PNG copy)>] 
+[12 <./bestMethodsCirc.png (PNG copy)> <./gibbs_e_05.png (PNG copy)> <./gibbs_e
+_1.png (PNG copy)>]
+<herrickgibbs_e_05.png, id=70, 1445.4pt x 704.6325pt>
+File: herrickgibbs_e_05.png Graphic file (type png)
+<use herrickgibbs_e_05.png>
+Package pdftex.def Info: herrickgibbs_e_05.png  used on input line 597. on inpu
+t line 597.
+Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
+e 597.
+<herrickgibbs_e_1.png, id=71, 1445.4pt x 704.6325pt>
+File: herrickgibbs_e_1.png Graphic file (type png)
+<use herrickgibbs_e_1.png>
+Package pdftex.def Info: herrickgibbs_e_1.png  used on input line 604. on input
+ line 604.
+Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
+e 604.
+<herrickgibbs_e_15.png, id=72, 1445.4pt x 704.6325pt>
+File: herrickgibbs_e_15.png Graphic file (type png)
+<use herrickgibbs_e_15.png>
+Package pdftex.def Info: herrickgibbs_e_15.png  used on input line 611. on inpu
+t line 611.
+Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
+e 611.
+<bothMethods_e_05.png, id=73, 1445.4pt x 704.6325pt>
+File: bothMethods_e_05.png Graphic file (type png)
+<use bothMethods_e_05.png>
+Package pdftex.def Info: bothMethods_e_05.png  used on input line 620. on input
+ line 620.
+Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
+e 620.
+<bestMethods_e_05.png, id=74, 1445.4pt x 704.6325pt>
+File: bestMethods_e_05.png Graphic file (type png)
+<use bestMethods_e_05.png>
+Package pdftex.def Info: bestMethods_e_05.png  used on input line 626. on input
+ line 626.
+Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
+e 626.
+<bothMethods_e_1.png, id=75, 1445.4pt x 704.6325pt>
+File: bothMethods_e_1.png Graphic file (type png)
+<use bothMethods_e_1.png>
+Package pdftex.def Info: bothMethods_e_1.png  used on input line 633. on input 
+line 633.
+Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
+e 633.
+<bestMethods_e_1.png, id=76, 1445.4pt x 704.6325pt>
+File: bestMethods_e_1.png Graphic file (type png)
+<use bestMethods_e_1.png>
+Package pdftex.def Info: bestMethods_e_1.png  used on input line 639. on input 
+line 639.
+Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
+e 639.
+<bothMethods_e_15.png, id=77, 1445.4pt x 704.6325pt>
+File: bothMethods_e_15.png Graphic file (type png)
+<use bothMethods_e_15.png>
+Package pdftex.def Info: bothMethods_e_15.png  used on input line 645. on input
+ line 645.
+Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
+e 645.
+<bestMethods_e_15.png, id=78, 1445.4pt x 704.6325pt>
+File: bestMethods_e_15.png Graphic file (type png)
+<use bestMethods_e_15.png>
+Package pdftex.def Info: bestMethods_e_15.png  used on input line 651. on input
+ line 651.
+Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
+e 651.
+ [13 <./gibbs_e_15.png (PNG copy)> <./herrickgibbs_e_05.png (PNG copy)>] [14 <.
+/herrickgibbs_e_1.png (PNG copy)> <./herrickgibbs_e_15.png (PNG copy)> <./bothM
+ethods_e_05.png (PNG copy)>] [15 <./bestMethods_e_05.png (PNG copy)> <./bothMet
+hods_e_1.png (PNG copy)> <./bestMethods_e_1.png (PNG copy)>] [16 <./bothMethods
+_e_15.png (PNG copy)> <./bestMethods_e_15.png (PNG copy)>]
+<ecceComp.png, id=92, 1445.4pt x 704.6325pt>
+File: ecceComp.png Graphic file (type png)
+<use ecceComp.png>
+Package pdftex.def Info: ecceComp.png  used on input line 662. on input line 66
+2.
+Package pdftex.def Info: Requested size: 328.82707pt x 160.29877pt on input lin
+e 662.
+ (Hoddinott_Philip_Independant_Study_Write_up.bbl [17 <./ecceComp.png (PNG copy
+)>]
+! Misplaced alignment tab character &.
+l.26 \newblock Master's thesis, Texas A&
+                                        M University, August 2016.
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+) [18] ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 
@@ -1080,15 +1189,15 @@ See the caption package documentation for explanation.
 
 
 AED: lastpage setting LastPage
-[11] (Hoddinott_Philip_Independant_Study_Write_up.aux) ) 
+[19] (Hoddinott_Philip_Independant_Study_Write_up.aux) ) 
 Here is how much of TeX's memory you used:
- 8191 strings out of 493312
- 115303 string characters out of 3138896
- 312965 words of memory out of 3000000
- 11544 multiletter control sequences out of 15000+200000
+ 8271 strings out of 493312
+ 116970 string characters out of 3138896
+ 313689 words of memory out of 3000000
+ 11611 multiletter control sequences out of 15000+200000
  17143 words of font info for 64 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,12n,43p,878b,285s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,12n,43p,878b,304s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Philip/AppDat
 a/Roaming/MiKTeX/2.9/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX
@@ -1103,10 +1212,10 @@ les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/Philip/AppData/Roaming/MiKTe
 X/2.9/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on Hoddinott_Philip_Independant_Study_Write_up.pdf (16 pages, 22
-77527 bytes).
+Output written on Hoddinott_Philip_Independant_Study_Write_up.pdf (23 pages, 10
+692278 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
+ 145 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

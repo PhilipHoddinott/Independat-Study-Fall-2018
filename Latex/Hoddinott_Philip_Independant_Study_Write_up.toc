@@ -1,10 +1,12 @@
-\contentsline {section}{\numberline {1}Abstract}{3}
-\contentsline {section}{\numberline {2}Introduction}{1}
-\contentsline {section}{\numberline {3}Gibbs method}{2}
-\contentsline {subsection}{\numberline {3.1}Derivation of Gibbs Method}{2}
-\contentsline {section}{\numberline {4}Herrick-Gibbs Method}{7}
-\contentsline {section}{\numberline {5}Analysis of Methods}{7}
-\contentsline {section}{\numberline {6}Results}{10}
-\contentsline {section}{\numberline {7}Comparison of Methods}{10}
-\contentsline {section}{\numberline {8}Conclusion}{10}
-\contentsline {section}{Appendix}{11}
+\contentsline {section}{\numberline {1}Abstract}{1}
+\contentsline {section}{\numberline {2}Introduction}{2}
+\contentsline {section}{\numberline {3}Gibbs method}{3}
+\contentsline {subsection}{\numberline {3.1}Derivation of Gibbs Method}{3}
+\contentsline {section}{\numberline {4}Herrick-Gibbs Method}{8}
+\contentsline {section}{\numberline {5}Derivation of Herrick-Gibbs Method}{8}
+\contentsline {section}{\numberline {6}Analysis of Methods}{10}
+\contentsline {subsection}{\numberline {6.1}Analysis of Gibbs Method at various eccentricities}{11}
+\contentsline {subsection}{\numberline {6.2}Analysis of Herrick-Gibbs Method at various eccentricities}{13}
+\contentsline {subsection}{\numberline {6.3}Comparison of methods}{13}
+\contentsline {section}{\numberline {7}Conclusion}{17}
+\contentsline {section}{Appendix}{19}

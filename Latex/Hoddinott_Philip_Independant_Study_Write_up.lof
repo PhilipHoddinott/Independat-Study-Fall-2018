@@ -1,3 +1,16 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces RMS error for the semi major axis via Gibbs method for an eccentricity of zero.\relax }}{8}
-\contentsline {figure}{\numberline {2}{\ignorespaces RMS error for the semi major axis via Herrick-Gibbs method for an eccentricity of zero.\relax }}{9}
-\contentsline {figure}{\numberline {3}{\ignorespaces The best possible RMS error for the semi major axis. The red line indicates where Gibbs method becomes better than the Herrick Gibbs Method\relax }}{9}
+\contentsline {figure}{\numberline {1}{\ignorespaces RMS error for the semi major axis via Gibbs method for an eccentricity of zero.\relax }}{11}
+\contentsline {figure}{\numberline {2}{\ignorespaces RMS error for the semi major axis via Herrick-Gibbs method for an eccentricity of zero.\relax }}{11}
+\contentsline {figure}{\numberline {3}{\ignorespaces The best possible RMS error for the semi major axis. The red line indicates where Gibbs method becomes better than the Herrick Gibbs Method\relax }}{12}
+\contentsline {figure}{\numberline {4}{\ignorespaces Gibbs method for an eccentricity of 0.05 vs noise and distance between measurements.\relax }}{12}
+\contentsline {figure}{\numberline {5}{\ignorespaces Gibbs method for an eccentricity of 0.1 vs noise and distance between measurements.\relax }}{12}
+\contentsline {figure}{\numberline {6}{\ignorespaces Gibbs method for an eccentricity of 0.15 vs noise and distance between measurements.\relax }}{13}
+\contentsline {figure}{\numberline {7}{\ignorespaces Herrick-Gibbs method for an eccentricity of 0.05 vs noise and distance between measurements.\relax }}{13}
+\contentsline {figure}{\numberline {8}{\ignorespaces Herrick-Gibbs method for an eccentricity of 0.1 vs noise and distance between measurements.\relax }}{14}
+\contentsline {figure}{\numberline {9}{\ignorespaces Herrick-Gibbs method for an eccentricity of 0.15 vs noise and distance between measurements.\relax }}{14}
+\contentsline {figure}{\numberline {10}{\ignorespaces Both Gibbs and Herrick-Gibbs at an eccentricity of 0.05\relax }}{14}
+\contentsline {figure}{\numberline {11}{\ignorespaces The best possible measurement from either method at an eccentricity of 0.05\relax }}{15}
+\contentsline {figure}{\numberline {12}{\ignorespaces Both Gibbs and Herrick-Gibbs at an eccentricity of 0.1\relax }}{15}
+\contentsline {figure}{\numberline {13}{\ignorespaces The best possible measurement from either method at an eccentricity of 0.1\relax }}{15}
+\contentsline {figure}{\numberline {14}{\ignorespaces Both Gibbs and Herrick-Gibbs at an eccentricity of 0.15\relax }}{16}
+\contentsline {figure}{\numberline {15}{\ignorespaces The best possible measurement from either method at an eccentricity of 0.15\relax }}{16}
+\contentsline {figure}{\numberline {16}{\ignorespaces \relax }}{17}

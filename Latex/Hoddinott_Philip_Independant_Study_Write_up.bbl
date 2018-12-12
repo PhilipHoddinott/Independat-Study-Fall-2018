@@ -19,4 +19,10 @@ David~A Vallado.
 \newblock {\em Fundamentals of astrodynamics and applications}.
 \newblock Springer Science \& Business Media, 3 edition, 2007.
 
+\bibitem{Kaushick}
+Arvind~Shankar Kaushik.
+\newblock A statistical comparison between gibbs and herrick-gibbs orbit
+  determination methods.
+\newblock Master's thesis, Texas A&M University, August 2016.
+
 \end{thebibliography}
