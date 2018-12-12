@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Abstract}{3}
+\contentsline {section}{\numberline {2}Introduction}{1}
+\contentsline {section}{\numberline {3}Gibbs method}{2}
+\contentsline {subsection}{\numberline {3.1}Derivation of Gibbs Method}{2}
+\contentsline {section}{\numberline {4}Herrick-Gibbs Method}{7}
+\contentsline {section}{\numberline {5}Analysis of Methods}{7}
+\contentsline {section}{\numberline {6}Results}{10}
+\contentsline {section}{\numberline {7}Comparison of Methods}{10}
+\contentsline {section}{\numberline {8}Conclusion}{10}
+\contentsline {section}{Appendix}{11}
