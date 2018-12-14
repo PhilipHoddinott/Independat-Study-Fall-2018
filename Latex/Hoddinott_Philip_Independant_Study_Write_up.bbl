@@ -6,14 +6,6 @@ Astro 110-01, lecture 7.
   \url{https://www.ifa.hawaii.edu/users/shadia/lectures/habbal_astro110-01_spring2009_lecture7.pdf},
   Feb 2009.
 
-\bibitem{gibbsBio}
-\url{https://www.aps.org/programs/outreach/history/historicsites/gibbs.cfm}.
-
-\bibitem{curtis2013_gibbs}
-Howard~D Curtis.
-\newblock {\em Orbital mechanics for engineering students}.
-\newblock Butterworth-Heinemann, 2013.
-
 \bibitem{vallado2007fundamentals}
 David~A Vallado.
 \newblock {\em Fundamentals of astrodynamics and applications}.
@@ -24,5 +16,16 @@ Arvind~Shankar Kaushik.
 \newblock A statistical comparison between gibbs and herrick-gibbs orbit
   determination methods.
 \newblock Master's thesis, Texas A\&M University, August 2016.
+
+\bibitem{gibbsBio}
+J. willard gibbs.
+\newblock
+  \url{https://www.aps.org/programs/outreach/history/historicsites/gibbs.cfm},
+  2018.
+
+\bibitem{curtis2013_gibbs}
+Howard~D Curtis.
+\newblock {\em Orbital mechanics for engineering students}.
+\newblock Butterworth-Heinemann, 2013.
 
 \end{thebibliography}

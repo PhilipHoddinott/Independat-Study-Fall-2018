@@ -10,7 +10,8 @@ s = rng;
 
 
 loopCount=1;
-eArr=0.001:.001:.005;
+eArr=0.004:.001:.008;
+%eArr=0.05:.05:.15;
 load('wkspcNew_1.mat','MAdistA','sigmaA','rmsCir');
    
 MAdistA1=MAdistA;
@@ -42,10 +43,14 @@ for loopCount=1:length(eArr)
     end
 
 
-    numbSamp=5000; % set numbSamp
+    numbSamp=500; % set numbSamp
     TAdistA=linspace(1,30,30*6); % set TA dist to go over
-    sigmaA=linspace(0,2,100); % set sigma (km) to go over
-    
+    sigmaA=linspace(0,2,20); % set sigma (km) to go over
+    sigArr=[1,2,25,50,75,99,100];%,125,150,175,200
+    %for pipper=1:length(sigArr)
+    %sigmaAnew(pipper)=sigmaA(sigArr(pipper));
+    %end
+    %sigmaA=sigmaAnew;
     OrbType='circ';  
     coe=coeM(:,1:6);
 
@@ -58,9 +63,9 @@ for loopCount=1:length(eArr)
     TAdistAReal=2*atan(sqrt((1+e)/(1-e))*tan(Earr/2));
     TAdistA=TAdistAReal*180/pi;
 
-    [rmsCir,rmsMH,rmsGv2,rmsHGv2] = RMS_G_HG_Fast(numbSamp,sigmaA,TAdistA,coeM,mu,OrbType,rp,MAdistA);
+    [rmsCir,rmsMH,rmsGv2,rmsHGv2] = RMS_G_HG(numbSamp,sigmaA,TAdistA,coeM,mu,OrbType,rp,MAdistA);
     close all;
-    str=['wkspcN3_',num2str(loopCount)];
+    str=['wkspcN_FINAL_testHck_',num2str(loopCount)];
     save(str)
     
     rmsEc=rmsCir;
@@ -370,7 +375,7 @@ function [rmsM,rmsMH,rmsGv2,rmsHGv2] = RMS_G_HG(numbSamp,sigmaA,TAdistA,coeM,mu,
         sigma=sigmaA(sigmaC);
         for TAdistC=1:length(TAdistA)%120
             TAdist=TAdistA(TAdistC);
-            TAarr=(0:TAdist:2*TAdist)';
+            TAarr=(0:TAdist:2*TAdist+.001)';
             E=2*atan( sqrt(1-coeM(1,2))/sqrt(1+coeM(1,2)) *tan(.5*TAarr*pi/180));
             MAarr= E-coeM(1,2)*sin(E);
             

@@ -1,19 +1,21 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Root Mean Square Error Implemented in MATLAB\relax }}{11}
 \contentsline {figure}{\numberline {2}{\ignorespaces RMS error for the semi major axis via Gibbs method for an eccentricity of zero.\relax }}{12}
-\contentsline {figure}{\numberline {4}{\ignorespaces The best possible RMS error for the semi major axis. The red line indicates where Gibbs method becomes better than the Herrick Gibbs Method\relax }}{13}
-\contentsline {figure}{\numberline {3}{\ignorespaces RMS error for the semi major axis via Herrick-Gibbs method for an eccentricity of zero.\relax }}{13}
-\contentsline {figure}{\numberline {5}{\ignorespaces Gibbs method for an eccentricity of 0.05 vs noise and distance between measurements.\relax }}{14}
-\contentsline {figure}{\numberline {6}{\ignorespaces Gibbs method for an eccentricity of 0.1 vs noise and distance between measurements.\relax }}{14}
-\contentsline {figure}{\numberline {7}{\ignorespaces Gibbs method for an eccentricity of 0.15 vs noise and distance between measurements.\relax }}{14}
-\contentsline {figure}{\numberline {8}{\ignorespaces Herrick-Gibbs method for an eccentricity of 0.05 vs noise and distance between measurements.\relax }}{15}
-\contentsline {figure}{\numberline {9}{\ignorespaces Herrick-Gibbs method for an eccentricity of 0.1 vs noise and distance between measurements.\relax }}{15}
-\contentsline {figure}{\numberline {10}{\ignorespaces Herrick-Gibbs method for an eccentricity of 0.15 vs noise and distance between measurements.\relax }}{15}
-\contentsline {figure}{\numberline {11}{\ignorespaces Both Gibbs and Herrick-Gibbs at an eccentricity of 0.05\relax }}{16}
-\contentsline {figure}{\numberline {12}{\ignorespaces The best possible measurement from either method at an eccentricity of 0.05\relax }}{16}
-\contentsline {figure}{\numberline {13}{\ignorespaces Comparison of methods at an eccentricity of 0.05\relax }}{16}
-\contentsline {figure}{\numberline {15}{\ignorespaces The best possible measurement from either method at an eccentricity of 0.1\relax }}{17}
-\contentsline {figure}{\numberline {16}{\ignorespaces Both Gibbs and Herrick-Gibbs at an eccentricity of 0.15\relax }}{17}
-\contentsline {figure}{\numberline {14}{\ignorespaces Both Gibbs and Herrick-Gibbs at an eccentricity of 0.1\relax }}{17}
-\contentsline {figure}{\numberline {17}{\ignorespaces The best possible measurement from either method at an eccentricity of 0.15\relax }}{17}
-\contentsline {figure}{\numberline {18}{\ignorespaces Comparison of transition lines against a plot of the error for a circular Gibb's method for reference.\relax }}{18}
-\contentsline {figure}{\numberline {19}{\ignorespaces Top down view of figure 18\hbox {}.\relax }}{18}
+\contentsline {figure}{\numberline {3}{\ignorespaces RMS error for the semi major axis via Herrick-Gibbs method for an eccentricity of zero.\relax }}{12}
+\contentsline {figure}{\numberline {4}{\ignorespaces The best possible RMS error for the semi major axis. The red transition line indicates where Gibbs method becomes better than the Herrick Gibbs Method\relax }}{13}
+\contentsline {figure}{\numberline {5}{\ignorespaces Gibbs method for an eccentricity of 0.05 vs noise and distance between measurements.\relax }}{13}
+\contentsline {figure}{\numberline {6}{\ignorespaces Section view of figure 5\hbox {} for specified noise levels.\relax }}{14}
+\contentsline {figure}{\numberline {7}{\ignorespaces Gibbs method for an eccentricity of 0.1 vs noise and distance between measurements.\relax }}{14}
+\contentsline {figure}{\numberline {8}{\ignorespaces Section view of figure 7\hbox {} for specified noise levels.\relax }}{15}
+\contentsline {figure}{\numberline {9}{\ignorespaces Gibbs method for an eccentricity of 0.15 vs noise and distance between measurements.\relax }}{15}
+\contentsline {figure}{\numberline {10}{\ignorespaces Section view of figure 9\hbox {} for specified noise levels.\relax }}{16}
+\contentsline {figure}{\numberline {11}{\ignorespaces Herrick-Gibbs method for an eccentricity of 0.05 vs noise and distance between measurements.\relax }}{17}
+\contentsline {figure}{\numberline {12}{\ignorespaces Section view of figure 11\hbox {} for specified noise levels.\relax }}{17}
+\contentsline {figure}{\numberline {13}{\ignorespaces Herrick-Gibbs method for an eccentricity of 0.1 vs noise and distance between measurements.\relax }}{18}
+\contentsline {figure}{\numberline {14}{\ignorespaces Section view of figure 13\hbox {} for specified noise levels.\relax }}{18}
+\contentsline {figure}{\numberline {15}{\ignorespaces Herrick-Gibbs method for an eccentricity of 0.15 vs noise and distance between measurements.\relax }}{19}
+\contentsline {figure}{\numberline {16}{\ignorespaces Section view of figure 15\hbox {} for specified noise levels.\relax }}{19}
+\contentsline {figure}{\numberline {17}{\ignorespaces Comparison of methods at an eccentricity of 0.05\relax }}{20}
+\contentsline {figure}{\numberline {18}{\ignorespaces Comparison of methods at an eccentricity of 0.1\relax }}{20}
+\contentsline {figure}{\numberline {19}{\ignorespaces Comparison of methods at an eccentricity of 0.15\relax }}{21}
+\contentsline {figure}{\numberline {20}{\ignorespaces Comparison of transition lines against a plot of the error for a circular Gibb's method for reference.\relax }}{21}
+\contentsline {figure}{\numberline {21}{\ignorespaces Top down view of figure 20\hbox {}.\relax }}{22}

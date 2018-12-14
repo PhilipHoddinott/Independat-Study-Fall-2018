@@ -9,7 +9,7 @@
 
 \documentclass[12pt]{article}
 
-\usepackage[demo]{graphicx}
+%\usepackage[demo]{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
 
@@ -30,7 +30,7 @@
 \usepackage[table,xcdraw]{xcolor}
 
 
-\usepackage[margin=1in]{geometry} 
+\usepackage[margin=.75in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{color}
 \usepackage{fancyhdr}
@@ -120,7 +120,7 @@
 \fi
 
 \begin{document}
-		\title{Comparison of Gibbs and Herrick-Gibbs Method for low eccentric orbits}
+		\title{A comparison of the Gibbs and Herrick-Gibbs Methods subject to noise for low eccentric orbits}
 	\author{Philip Hoddinott}
 	
 	\maketitle
@@ -201,7 +201,9 @@
 		%\textcolor{red}{Put a bit more on the other methods}
 		\subsection{Problem Statement}
 		Of the mentioned methods of preliminary orbit determination, Gibbs and Herrick-Gibbs are two commonly used ones. Gibbs method uses three position measurements that are spaced relatively far apart to solve for the orbital elements. Herrick-Gibbs uses three position measurements that are close together and a Taylor series to solve for the orbital elements. Herrick-Gibbs is recommended for position measurements that are less than 5 degrees apart, and Gibbs should be used for measurements more than 5 degrees apart\cite{vallado2007fundamentals}. However this suggestion does factor in error in the position measurements. Some work has been done on these three position measurement methods \cite{Kaushick}, in this paper we seek to expand on it and add in the effects of orbital eccentricity.
-		
+		\subsection{Transition Line}
+		Kaushick \cite{Kaushick} in his comparison of the Gibbs and Herrick-Gibbs methods discusses the idea of a transition point, the place where on a plot of error vs the separation of position measurements that the Gibbs method becomes more accurate than the Herrick-Gibbs method.\par 
+		In this paper the idea of a transition line will be used. The transition line is the three dimensional representation of the transition point. The transition line marks where on a range of noise and measurement separations the Gibbs method becomes better than the Herrick-Gibbs method.
 		
 		
 		
@@ -209,7 +211,7 @@
 	%\subsection{Orbit Determination}
 	%
 	%\newpage
-	\subsection{Gibbs method}
+	\section{Gibbs method}
 	Gibbs method was developed by Josiah Willard Gibbs\cite{gibbsBio}, who was famous for his application of vectorized math to thermodynamics. Gibbs method works off having three measurements of the distance to an object at three different times. Thus, assume we have the following position vectors:
 	\begin{equation}
 	\boldsymbol{r_1}, 	\boldsymbol{r_2},	\boldsymbol{r_3}
@@ -230,7 +232,7 @@
 	
 	This algorithm works well for a code to obtain orbital elements, and a MATLAB code for it is provided in the appendix.
 		
-	\subsubsection{Derivation of Gibbs Method}
+	\subsection{Derivation of Gibbs Method}
 	The algorithm above will now be expanded on, to explain how the steps were obtained. We will use the notation from Howard Curtis's Orbital Mechanics for Engineering Students \cite{curtis2013_gibbs}. 
 	
 	Gibbs method beings with the conservation of momentum, which means that all the position vectors of an orbiting object must all be co planer. Or the unit vector normal to the plane of any two position vectors must be perpendicular to the unit vector of the third measurement. This may be expressed as:
@@ -305,9 +307,9 @@
 	 \label{eqn:edot2}
 	 \end{equation}
 	 
-	 Now we have a relationship between the coefficents from earlier, position, and momentum. If the coefficients $c_1$ and $c_2$ may be solved for, the angular momentum may be found. 
+	 Now we have a relationship between the coefficients from earlier, position, and momentum. If the coefficients $c_1$ and $c_2$ may be solved for, the angular momentum may be found. 
 	 
-	 Removing the coefficents gives the following equation
+	 Removing the coefficients gives the following equation
 	 \begin{equation}
 	 \frac { h ^ { 2 } } { \mu } \underbrace{\left( \mathbf { r } _ { 1 } \times \mathbf { r } _ { 2 } + \mathbf { r } _ { 2 } \times \mathbf { r } _ { 3 } + \mathbf { r } _ { 3 } \times \mathbf { r } _ { 1 } \right)}_{D} = \underbrace{r _ { 1 } \left( \mathbf { r } _ { 2 } \times \mathbf { r } _ { 3 } \right) + r _ { 2 } \left( \mathbf { r } _ { 3 } \times \mathbf { r } _ { 1 } \right) + r _ { 3 } \left( \mathbf { r } _ { 1 } \times \mathbf { r } _ { 2 } \right)}_{N}
 	 \label{eqn:longone}
@@ -441,11 +443,11 @@ The we write the sum of these equations as
 	\end{eqnarray}
 	NOTE make these normal fractions
 	\fi
-	\subsection{Herrick-Gibbs Method}
-	The obvious problem with Gibbs method is what if the measured vectors are close to each other, for example in a single pass over a ground station. Herrick Gibbs is one such solution to this problem, it is a method of orbital determination that requires three position measurements, and their respective times. It then uses a Taylor series expansion. Because it is a Taylor series, it is not as robust as Gibbs method. According to Vallado, it is best for under 5 degrees of spereation between position vectors \cite{vallado2007fundamentals}.
+	\section{Herrick-Gibbs Method}
+	The obvious problem with Gibbs method is what if the measured vectors are close to each other, for example in a single pass over a ground station. Herrick Gibbs is one such solution to this problem, it is a method of orbital determination that requires three position measurements, and their respective times. It then uses a Taylor series expansion. Because it is a Taylor series, it is not as robust as Gibbs method. According to Vallado, it is best for under 5 degrees of separation between position vectors \cite{vallado2007fundamentals}.
 	
-	\subsubsection{Derivation of Herrick-Gibbs Method}
-	The derivation of the Herrick-Gibbs method in this section is based off of Kaushick's derivation\cite{Kaushick}, but the notation has been changed to be consistent with the notation used thus far in this paper. Herrick Gibbs begins by using the Taylor series to expand the position and the velocity vectors out by 
+	\subsection{Herrick-Gibbs Method Algorithm}
+	The derivation of Herrick-Gibbs method is a lengthy one, and readers searching for a more in depth derivation of Herrick-Gibbs should read Vallado's Fundamentals of Astrodynamics and Applications \cite{vallado2007fundamentals}. This paper will present the relevant algorithm for Herrick Gibbs method. The algorithm of the Herrick-Gibbs method in this section is based off of Kaushick's derivation\cite{Kaushick}, but the notation has been changed to be consistent with the notation used thus far in this paper. Herrick Gibbs begins by using the Taylor series to expand the position and the velocity vectors out by 
 	\begin{equation}
 	\begin{array} { l } { \mathbf { r } = \mathbf { a } _ { 0 } + t \mathbf { a } _ { 1 } + t ^ { 2 } \mathbf { a } _ { 2 } + t ^ { 3 } \mathbf { a } _ { 3 } + t ^ { 4 } \mathbf { a } _ { 4 } + t ^ { 5 } \mathbf { a } _ { 5 } } \\ { \mathbf { v } = \mathbf { a } _ { 1 } + 2 t \mathbf { a } _ { 2 } + 3 t ^ { 2 } \mathbf { a } _ { 3 } + 4 t ^ { 3 } \mathbf { a } _ { 4 } + 5 t ^ { 4 } \mathbf { a } _ { 5 } } \end{array}
 	\end{equation}
@@ -474,11 +476,18 @@ The we write the sum of these equations as
 	Solving for the $a_n$ terms gives the following equation
 	
 	\begin{equation}
-	\begin{aligned} \mathbf { v } _ { 2 } = - \Delta t _ { 32 } \left[ \frac { 1 } { \Delta t _ { 21 } \Delta t _ { 31 } } + \frac { \mu } { 12 r _ { 1 } ^ { 3 } } \right] \mathbf { r } _ { 1 } + \left( \Delta t _ { 32 } - \Delta t _ { 21 } \right) & \left[ \frac { 1 } { \Delta t _ { 21 } \Delta t _ { 32 } } + \frac { \mu } { 12 r _ { 2 } ^ { 3 } } \right] \mathbf { r } _ { 2 } \\ + \Delta t _ { 21 } & \frac { 1 } { \Delta t _ { 32 } \Delta t _ { 31 } } + \frac { \mu } { 12 r _ { 3 } ^ { 3 } } ] \mathbf { r } _ { 3 } \end{aligned}
+	\begin{aligned} \mathbf { v } _ { 2 } = - \Delta t _ { 32 } \left[ \frac { 1 } { \Delta t _ { 21 } \Delta t _ { 31 } } + \frac { \mu } { 12 r _ { 1 } ^ { 3 } } \right] \mathbf { r } _ { 1 } + \left( \Delta t _ { 32 } - \Delta t _ { 21 } \right) & \left[ \frac { 1 } { \Delta t _ { 21 } \Delta t _ { 32 } } + \frac { \mu } { 12 r _ { 2 } ^ { 3 } } \right] \mathbf { r } _ { 2 } \\ + \Delta t _ { 21 } & \left[\frac { 1 } { \Delta t _ { 32 } \Delta t _ { 31 } } + \frac { \mu } { 12 r _ { 3 } ^ { 3 } } \right] \mathbf { r } _ { 3 } \end{aligned}
+	\label{eqn:HGREF}
 	\end{equation}
 	
-	%\textcolor{red}{To do, expand on this derivation, reverance Vallado}
+		%\begin{equation}
+	%\mathbf { v } _ { 2 } = - \Delta t _ { 32 } \left[ \frac { 1 } { \Delta t _ { 21 } \Delta t _ { 31 } } + \frac { \mu } { 12 r _ { 1 } ^ { 3 } } \right] \mathbf { r } _ { 1 } + \left( \Delta t _ { 32 } - \Delta t _ { 21 } \right)  \left[ \frac { 1 } { \Delta t _ { 21 } \Delta t _ { 32 } } + \frac { \mu } { 12 r _ { 2 } ^ { 3 } } \right] \mathbf { r } _ { 2 } \\ + \Delta t _ { 21 }  \left[\frac { 1 } { \Delta t _ { 32 } \Delta t _ { 31 } } + \frac { \mu } { 12 r _ { 3 } ^ { 3 } } \right] \mathbf { r } _ { 3 } 
+	%\end{equation}
+	
 	\iffalse
+	
+	%\textcolor{red}{To do, expand on this derivation, reverance Vallado}
+	
 	The derivation of the Herrick-Gibbs method in this section is based off of Vallado's derivation \cite{vallado2007fundamentals}, but the notation has been changed to be consistent with the notation used thus far in this paper. 
 	
 		Herrick Gibbs begins by using the Taylor series to expand the position vector out by 
@@ -488,12 +497,25 @@ The we write the sum of these equations as
 		
 		The time between the observations is defined as 
 		\begin{equation}
-		\begin{array} { l } { \Delta t _ { 32 } = t _ { 3 } - t _ { 2 } } \\ { \Delta t _ { 31 } = t _ { 3 } - t _ { 1 } } \\ { \Delta t _ { 21 } = t _ { 2 } - t _ { 1 } } \end{array}
+		\begin{array} { l } { \Delta t _ { 23 } = t _ { 2 } - t _ { 3 } } \\ { \Delta t _ { 13 } = t _ { 1 } - t _ { 3 } } \\ { \Delta t _ { 12 } = t _ { 1 } - t _ { 12 } } \end{array}
 		\end{equation}
 		The position vectors may be now written as 
 		
+		\begin{equation}\begin{aligned}
+		\mathbf{r_1}=\mathbf{r_2}+\mathbf{\dot{r}_2} (\Delta t _ { 12 } ) + \mathbf{\ddot{r}_2} \frac{(\Delta t _ { 12 })^2}{2!}+ \mathbf{\dddot{r}_2} \frac{(\Delta t _ { 12 })^3}{3!}+ \mathbf{{r_2}}^{(iv)} \frac{(\Delta t _ { 12 })^4}{4!}+\dots\\
+		\mathbf{r_3}=\mathbf{r_2}+\mathbf{\dot{r}_2} (\Delta t _ { 32 } ) + \mathbf{\ddot{r}_2} \frac{(\Delta t _ { 32 })^2}{2!}+ \mathbf{\dddot{r}_2} \frac{(\Delta t _ { 32 })^3}{3!}+ \mathbf{{r_2}}^{(iv)} \frac{(\Delta t _ { 32 })^4}{4!}+\dots\end{aligned}
+		\end{equation}
+		Using the relations in \ref{eqn:timer} and multiplying the equations together yields
 		\begin{equation}
-		\mathbf{r_1}=\mathbf{r_2}+\mathbf{\dot{r}_2} (\Delta t _ { 21 } ) + \mathbf{\ddot{r}_2} \frac{(t-t_2)^2}{2!}+ \mathbf{\dddot{r}_2} \frac{(t-t_2)^3}{3!}+ \mathbf{{r_2}}^{(iv)} \frac{(t-t_2)^4}{4!}+\dots
+		\begin{array} { l } { \Delta t _ { 12 } ^ { 2 } \Delta t _ { 32 } - \Delta t _ { 32 } ^ { 2 } \Delta t _ { 12 } = \Delta t _ { 12 } \Delta t _ { 32 } \Delta t _ { 13 } } \\ { \Delta t _ { 12 } ^ { 2 } \Delta t _ { 32 } ^ { 3 } - \Delta t _ { 32 } ^ { 2 } \Delta t _ { 12 } ^ { 3 } = \Delta t _ { 12 } ^ { 2 } \Delta t _ { 32 } ^ { 2 } \Delta t _ { 31 } } \\ { \Delta t _ { 12 } ^ { 2 } \Delta t _ { 32 } ^ { 4 } - \Delta t _ { 32 } ^ { 2 } \Delta t _ { 12 } ^ { 4 } = \Delta t _ { 12 } ^ { 2 } \Delta _ { 32 } ^ { 2 } \Delta t _ { 31 } \left\( \Delta t _ { 32 } + \Delta t _ { 12 } \right\) } \end{array}\label{eqn:timer}
+		\end{equation}
+		
+
+		\begin{equation}
+		\begin{aligned}
+		\mathbf{\dot{r}_2} \left(\Delta t_{12}\Delta t_{32}\Delta t_{31}\right)=\mathbf{r_1}\Delta t_{32}^2 + \mathbf{r_2}\left(-\Delta t_{32}^2 +\Delta t_{12}^2 \right)-\mathbf{r_3}\Delta t_{12}^2\\
+		+ \frac { \mathbf{\dot { r_2 }} } { 6 } \left( \Delta t _ { 12 } ^ { 2 } \Delta t _ { 32 } ^ { 2 } \Delta t _ { 31 } \right) + \frac { \mathbf{\dot { r } _ { 2 }} } { 24 } \left( \Delta t _ { 12 } ^ { 2 } \Delta t _ { 32 } ^ { 2 } \Delta t _ { 31 } \left\{ \Delta t _ { 32 } + \Delta t _ { 12 } \right\} \right)
+		\end{aligned}
 		\end{equation}
 
 	
@@ -505,7 +527,7 @@ The we write the sum of these equations as
 	
 	
 	
-
+%\iffalse
 	
 	difference in time for the 
 	\fi
@@ -581,10 +603,10 @@ The we write the sum of these equations as
 
 %\section{NOTE TO PHILIP}
 %\textcolor{red}{GIBBS is so bad here because the vectors might be close enough that they are within the noise level!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!}
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bestMethodsCirc}
-	\caption{The best possible RMS error for the semi major axis. The red line indicates where Gibbs method becomes better than the Herrick Gibbs Method}
+	\caption{The best possible RMS error for the semi major axis. The red transition line indicates where Gibbs method becomes better than the Herrick Gibbs Method}
 	\label{fig:bestmethodscirc}
 \end{figure}
 	Figure \ref{fig:bestmethodscirc} shows the lowest error of the two methods. It starts by showing the error of Herrick-Gibbs, then at the red line it transitions over to Gibbs method. From this figure Gibbs method is seen to overtake Herrick-Gibbs at a separation of 15 degrees for low noise levels,while at high noise levels it takes up to 35 degrees of separation for Gibbs method to overtake Herrick-Gibbs. From here the error associated with both methods over a range of eccentricity will be analyzed.\par 
@@ -627,11 +649,25 @@ The we write the sum of these equations as
 		\label{fig:gibbse05}
 	\end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{gibbs_e_05_side}
+	\caption{Section view of figure \ref{fig:gibbse05} for specified noise levels.}
+	\label{fig:Sidegibbse05}
+\end{figure}
+
 	\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{gibbs_e_1}
 	\caption{Gibbs method for an eccentricity of 0.1 vs noise and distance between measurements.}
 	\label{fig:gibbse1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{gibbs_e_1_side}
+	\caption{Section view of figure \ref{fig:gibbse1} for specified noise levels.}
+	\label{fig:Sidegibbse1}
 \end{figure}
 
 	\begin{figure}[H]
@@ -640,8 +676,19 @@ The we write the sum of these equations as
 	\caption{Gibbs method for an eccentricity of 0.15 vs noise and distance between measurements.}
 	\label{fig:gibbse15}
 \end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{gibbs_e_15_side}
+	\caption{Section view of figure \ref{fig:gibbse15} for specified noise levels.}
+	\label{fig:Sidegibbse15}
+\end{figure}
+
+	From these plots it can be seen that Gibbs method is sensitive to both noise and position vector separation. The results are what would be expected, as the distance between position vectors increases the resulting error decreases. Gibbs is also sensitive noise (as expected), where the increase in noise increases the error. \par
 	
-	\newpage
+	Figures \ref{fig:Sidegibbse05}, \ref{fig:Sidegibbse1}, and \ref{fig:Sidegibbse15} show the RMS vs the separation at specified noise levels. From these figures it is seen that changing the eccentricity has very little effect on Gibbs method. 
+
+	%\newpage
 	\subsection{Analysis of Herrick-Gibbs Method at various eccentricities}
 		The following plots come from Herrick-Gibb's method at an eccentricity of $e=0.05,0.1,0.15$
 		\begin{figure}[H]
@@ -650,6 +697,14 @@ The we write the sum of these equations as
 		\caption{Herrick-Gibbs method for an eccentricity of 0.05 vs noise and distance between measurements.}
 		\label{fig:herrickgibbse05}
 	\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{heck_gibbs_e_05_side}
+	\caption{Section view of figure \ref{fig:herrickgibbse05} for specified noise levels.}
+	\label{fig:heckgibbse05side}
+\end{figure}
+
 	
 	\begin{figure}[H]
 		\centering
@@ -657,17 +712,35 @@ The we write the sum of these equations as
 		\caption{Herrick-Gibbs method for an eccentricity of 0.1 vs noise and distance between measurements.}
 		\label{fig:herrickgibbse1}
 	\end{figure}
-	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{heck_gibbs_e_1_side}
+		\caption{Section view of figure \ref{fig:herrickgibbse1} for specified noise levels.}
+		\label{fig:heckgibbse1side}
+	\end{figure}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{herrickgibbs_e_15}
 		\caption{Herrick-Gibbs method for an eccentricity of 0.15 vs noise and distance between measurements.}
 		\label{fig:herrickgibbse15}
 	\end{figure}
-\newpage
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{heck_gibbs_e_15_side}
+	\caption{Section view of figure \ref{fig:herrickgibbse15} for specified noise levels.}
+	\label{fig:heckgibbse15side}
+\end{figure}
+
+	From these plots it can be seen that just like Gibbs method, Herrick-Gibbs is sensitive to both noise and position vector separation. The results are what would be expected, as the distance between position vectors increases Herrick-Gibbs gets better up to a point, then resulting error begins to increase. Again, like Gibbs, Herrick-Gibbs is also sensitive to noise as the increase in noise increases the error. \par
+
+Unlike Gibbs, Herrick-Gibbs is sensitive to changes in eccentricity. Figures \ref{fig:heckgibbse05side}, \ref{fig:heckgibbse1side}, and \ref{fig:heckgibbse15side} show the RMS vs the separation at specified noise levels at three different eccentricities. From these figures it is seen that increasing the eccentricity causes the RMS error to increase faster once it has passed it's minimum point.\par 
+ 
+
 	\subsection{Comparison of methods}
 	
-	From the previous sections it can be seen  that Gibbs method improves as the distance between observations increases and Herrick-Gibbs method improves up to a point, then decreases in accuracy. We now compare the methods against each other in the following figures 
+	From the previous sections it can be seen  that Gibbs method improves as the distance between observations increases and Herrick-Gibbs method improves up to a point, then decreases in accuracy. It has also been seen that changing the eccentricity has little effect on Gibbs, but a strong effect on Herrick-Gibbs. These methods are now compared against each other in the following figures. 
+	\iffalse
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{bothMethods_e_05}
@@ -680,18 +753,19 @@ The we write the sum of these equations as
 		\caption{The best possible measurement from either method at an eccentricity of 0.05}
 		\label{fig:bestmethodse05}
 	\end{figure}
-
+\fi
+%\iffalse
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[width=.4\linewidth]{bothMethods_e_05}
+		\includegraphics[width=1.1\textwidth]{bothMethods_e_05}
 		\caption{Both Gibbs and Herrick-Gibbs at an eccentricity of 0.05}
 		\label{fig:sub1}
 	\end{subfigure}%
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[width=.4\linewidth]{bestMethods_e_05}
+		\includegraphics[width=1.1\linewidth]{bestMethods_e_05}
 		\caption{Best possible measurement from either method at an eccentricity of 0.05}
 		\label{fig:sub2}
 	\end{subfigure}
@@ -699,6 +773,43 @@ The we write the sum of these equations as
 	\label{fig:test}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{bothMethods_e_1}
+		\caption{Both Gibbs and Herrick-Gibbs at an eccentricity of 0.1}
+		\label{fig:e1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1.1\linewidth]{bestMethods_e_1}
+		\caption{Best possible measurement from either method at an eccentricity of 0.1}
+		\label{fig:e12}
+	\end{subfigure}
+	\caption{Comparison of methods at an eccentricity of 0.1}
+	\label{fig:test2}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1.1\textwidth]{bothMethods_e_15}
+		\caption{Both Gibbs and Herrick-Gibbs at an eccentricity of 0.15}
+		\label{fig:e151}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=1.1\linewidth]{bestMethods_e_15}
+		\caption{Best possible measurement from either method at an eccentricity of 0.15}
+		\label{fig:e152}
+	\end{subfigure}
+	\caption{Comparison of methods at an eccentricity of 0.15}
+	\label{fig:test3}
+\end{figure}
+%\fi
+\iffalse
 	\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bothMethods_e_1}
@@ -723,6 +834,7 @@ The we write the sum of these equations as
 	\caption{The best possible measurement from either method at an eccentricity of 0.15}
 	\label{fig:bestmethodse15}
 \end{figure}
+\fi
 
 It becomes clear that Gibbs method remains robust as eccentricity increases, while Herrick-Gibbs does not handle the changes in eccentricity as well. While a circular orbit had Herrick-Gibbs beat Gibbs method for up to 35 degrees between measurements, the results are now approaching Vallado's measurement of 5 degrees separation as the change point.\par 
 
@@ -751,6 +863,17 @@ Figure \ref{fig:eccecomp} plots the line where Gibbs method becomes better than 
 	
 	Vallado states that \cite{vallado2007fundamentals} the separation point should be five degrees. However this paper has shown that for measurements subject to measurement error, Herrick-Gibbs performs better than Gibbs over a larger range. Additionally the larger the measurement error, the longer that Herrick-Gibbs is the more accurate method. These findings are backed up Kaushick \cite{Kaushick}'s findings.\par 
 	However unlike Kashick's findings  this paper shown a relation between eccentricity and the range where Herrick-Gibbs performs better than Gibbs method. From figure \ref{fig:topdowneccecomp3} it is clear that the transition line is highly dependent on the orbit's eccentricity. An eccentric orbit will transition in a region twice the size of  Vallado's suggested region, but a nearly circular orbit will transition much further along.
+	
+	The relation between the eccentricity and the accuracy of Herrick=Gibbs was not expected. Recalling equation \ref{eqn:HGREF}, the middle term of the equation for the $\mathbf{ v_2 }$ was: 
+	\begin{equation}
+	\left( \Delta t _ { 32 } - \Delta t _ { 21 } \right) \left[ \frac { 1 } { \Delta t _ { 21 } \Delta t _ { 32 } } + \frac { \mu } { 12 r _ { 2 } ^ { 3 } } \right] \mathbf { r } _ { 2 }
+	\end{equation}
+	
+	When $ \Delta t _ { 21 }$ was very close to $ \Delta t _ { 32 } $ the effect of the $\mathbf{r_2}$ term would cancel out. For a nearly circular orbit $ \Delta t _ { 21 }$ would be very close to $ \Delta t _ { 32 } $. It was expected that removing this term would increase error, however it has had the opposite effect and decreased error. In fact for very nearly circular orbits, a gouging effect occurs, where the accuracy of Herrick-Gibbs method will dip below Gibbs a second time further down the position measurement distance. The author plans to explore these effects further in later papers.
+	
+	
+	
+	
 	\iffalse
 	
 	 seen a relation 
@@ -805,7 +928,10 @@ Figure \ref{fig:eccecomp} plots the line where Gibbs method becomes better than 
 			emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
 			%emph=[2]{word1,word2}, emphstyle=[2]{style},    
 		}
-		
+	%\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/Master_TLE.m}
+	\lstinputlisting{C:/Users/Philip/Documents/GitHub/independent_study_fall_2018/Independat-Study-Fall-2018/Gibbs_Heck_master_loop_Latex.m}
+	
+	%\subsection{Code}
 	%\subsection{Master\_TLE.m}
 	%\lstinputlisting{C:/Users/Philip/Documents/GitHub/Thesis/Master_TLE.m}
 	%\subsection{get\_SATCAT.m}
