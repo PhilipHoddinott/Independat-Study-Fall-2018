@@ -1,12 +1,16 @@
 \contentsline {section}{\numberline {1}Abstract}{1}
 \contentsline {section}{\numberline {2}Introduction}{2}
-\contentsline {section}{\numberline {3}Gibbs method}{3}
-\contentsline {subsection}{\numberline {3.1}Derivation of Gibbs Method}{3}
-\contentsline {section}{\numberline {4}Herrick-Gibbs Method}{8}
-\contentsline {section}{\numberline {5}Derivation of Herrick-Gibbs Method}{8}
-\contentsline {section}{\numberline {6}Analysis of Methods}{10}
-\contentsline {subsection}{\numberline {6.1}Analysis of Gibbs Method at various eccentricities}{11}
-\contentsline {subsection}{\numberline {6.2}Analysis of Herrick-Gibbs Method at various eccentricities}{13}
-\contentsline {subsection}{\numberline {6.3}Comparison of methods}{13}
-\contentsline {section}{\numberline {7}Conclusion}{17}
-\contentsline {section}{Appendix}{19}
+\contentsline {subsection}{\numberline {2.1}Background}{2}
+\contentsline {subsection}{\numberline {2.2}Problem Statement}{2}
+\contentsline {subsection}{\numberline {2.3}Gibbs method}{4}
+\contentsline {subsubsection}{\numberline {2.3.1}Derivation of Gibbs Method}{4}
+\contentsline {subsection}{\numberline {2.4}Herrick-Gibbs Method}{9}
+\contentsline {subsubsection}{\numberline {2.4.1}Derivation of Herrick-Gibbs Method}{9}
+\contentsline {section}{\numberline {3}Analysis of Methods}{11}
+\contentsline {subsection}{\numberline {3.1}Analysis Process}{11}
+\contentsline {subsection}{\numberline {3.2}Analysis of a circular orbit}{13}
+\contentsline {subsection}{\numberline {3.3}Analysis of Gibbs Method at various eccentricities}{15}
+\contentsline {subsection}{\numberline {3.4}Analysis of Herrick-Gibbs Method at various eccentricities}{16}
+\contentsline {subsection}{\numberline {3.5}Comparison of methods}{18}
+\contentsline {section}{\numberline {4}Conclusion}{20}
+\contentsline {section}{Appendix}{22}

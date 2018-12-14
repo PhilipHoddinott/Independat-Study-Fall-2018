@@ -42,11 +42,11 @@
 \usepackage{amsmath}%Added by Chri
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{Independant Study}
+%\fancyhead[L]{Independant Study}
 %\fancyhead[C]{\rightmark}
+\fancyhead[C]{}
 
-
-\fancyhead[C]{\nouppercase{\leftmark}}
+\fancyhead[L]{\nouppercase{\leftmark}}
 \fancyhead[R]{Philip Hoddinott}
 
 \rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
@@ -118,7 +118,7 @@
 \fi
 
 \begin{document}
-		\title{Comparison of Gibbs and Herrick-Gibbs Method}
+		\title{Comparison of Gibbs and Herrick-Gibbs Method for low eccentric orbits}
 	\author{Philip Hoddinott}
 	
 	\maketitle
@@ -156,7 +156,7 @@
 	%\thispagestyle{fancy}
 	
 	%\addcontentsline{toc}{section}{\uppercase{Table of Contents}}
-	\listoftables
+	%\listoftables
 	%\addcontentsline{toc}{section}{\uppercase{List of Tables}}
 	\listoffigures
 	%\addcontentsline{toc}{section}{\uppercase{List of Figures}}
@@ -185,18 +185,26 @@
 	 % this should start the normal numberinbg
 
 	\section{Introduction}
-
+	\subsection{Background}
 	Watching the skys at night, the ancient Greeks noticed that some stars seemed to move in fixed path across then night sky. They called these stars \textit{planetes}, meaning wanderers. The Greeks were not the first civilization to take notice of the planets, Babylonian astronomers were already recording the motion of the planets for five hundred years. But they were the first to develop methods of predicting the planet's motion. These methods were so advanced, that they would remain in use for over a thousand years until they were eclipsed the works of Copernicus\cite{lectureOnGreekAstro}. %, Kepler, Newton, and Euler\cite{lectureOnGreekAstro}. 
 	
 	%\textcolor{red}{Segway hre}
-	Today the prediction of planet's orbits falls under what we would call orbital determination. Orbital determination is the estimation of an object's orbital elements from certain measurements of the object (position, velocity, angle), often taken from some ground station. Modern orbital determination employs various methods such as Lambert's method, Gauss' method, Gibbs' method, Herrick-Gibbs method. Some methods such as Gibb's and Herrick-Gibbs' require only three position measurements. Lambert's method requires two position and velocity measurements, and Gauss's method uses measurements of an object's right ascension and declination. A method of orbital determination is considered a preliminary orbit determination method if it just uses the equations of two body motion, and neglects other effects on the orbit. 
+	Today the prediction of planet's orbits falls under what we would call orbital determination. Orbital determination is the estimation of an object's orbital elements from certain measurements of the object (position, velocity, angle), often taken from some ground station. Modern orbital determination employs various methods such as Lambert's method, Gauss' method, Gibbs' method, Herrick-Gibbs method. Some methods such as Gibb's and Herrick-Gibbs' require only three position measurements. Lambert's method requires two position and velocity measurements, and Gauss's method uses measurements of an object's right ascension and declination. A method of orbital determination is considered a preliminary orbit determination method if it just uses the equations of two body motion, and neglects other effects on the orbit.\par 
+	
+	
 	
 		\textcolor{red}{Put a bit more on the other methods}
+		\subsection{Problem Statement}
+		Of the mentioned methods of preliminary orbit determination, Gibbs and Herrick-Gibbs are two commonly used ones. Gibbs method uses three position measurements that are spaced relatively far apart to solve for the orbital elements. Herrick-Gibbs uses three position measurements that are close together and a Taylor series to solve for the orbital elements. Herrick-Gibbs is recommended for position measurements that are less than 5 degrees apart, and Gibbs should be used for measurements more than 5 degrees apart\cite{vallado2007fundamentals}. However this suggestion does factor in error in the position measurements. Some work has been done on these three position measurement methods \cite{Kaushick}, in this paper we seek to expand on it and add in the effects of orbital eccentricity.
+		
+		
+		
+		
 
 	%\subsection{Orbit Determination}
 	%
 	\newpage
-	\section{Gibbs method}
+	\subsection{Gibbs method}
 	Gibbs method was developed by Josiah Willard Gibbs\cite{gibbsBio}, who was famous for his application of vectorized math to thermodynamics. Gibbs method works off having three measurements of the distance to an object at three different times. Thus, assume we have the following position vectors:
 	\begin{equation}
 	\boldsymbol{r_1}, 	\boldsymbol{r_2},	\boldsymbol{r_3}
@@ -217,7 +225,7 @@
 	
 	This algorithm works well for a code to obtain orbital elements, and a MATLAB code for it is provided in the appendix.
 		
-	\subsection{Derivation of Gibbs Method}
+	\subsubsection{Derivation of Gibbs Method}
 	The algorithm above will now be expanded on, to explain how the steps were obtained. We will use the notation from Howard Curtis's Orbital Mechanics for Engineering Students \cite{curtis2013_gibbs}. 
 	
 	Gibbs method beings with the conservation of momentum, which means that all the position vectors of an orbiting object must all be co planer. Or the unit vector normal to the plane of any two position vectors must be perpendicular to the unit vector of the third measurement. This may be expressed as:
@@ -373,7 +381,7 @@ The we write the sum of these equations as
 	\end{equation}
 	 Now from this equation the velocity vector may be computed. 
 	\iffalse
-	\subsection{Gibbs method Algorithm}
+	\subsubsection{Gibbs method Algorithm}
 	These steps follow the derication og gibbs method from Orbital Mechanics for Engineering Students \cite{curtis2013_gibbs}. A more detailed derivation may be found in the appendix
 	
 	\begin{equation}
@@ -424,10 +432,10 @@ The we write the sum of these equations as
 	\end{eqnarray}
 	NOTE make these normal fractions
 	\fi
-	\section{Herrick-Gibbs Method}
+	\subsection{Herrick-Gibbs Method}
 	The obvious problem with Gibbs method is what if the measured vectors are close to each other, for example in a single pass over a ground station. Herrick Gibbs is one such solution to this problem, it is a method of orbital determination that requires three position measurements, and their respective times. It then uses a Taylor series expansion. Because it is a Taylor series, it is not as robust as Gibbs method. According to Vallado, it is best for under 5 degrees of spereation between position vectors \cite{vallado2007fundamentals}.
 	
-	\section{Derivation of Herrick-Gibbs Method}
+	\subsubsection{Derivation of Herrick-Gibbs Method}
 	The derivation of the Herrick-Gibbs method in this section is based off of Kaushick's derivation\cite{Kaushick}, but the notation has been changed to be consistent with the notation used thus far in this paper. Herrick Gibbs begins by using the Taylor series to expand the position and the velocity vectors out by 
 	\begin{equation}
 	\begin{array} { l } { \mathbf { r } = \mathbf { a } _ { 0 } + t \mathbf { a } _ { 1 } + t ^ { 2 } \mathbf { a } _ { 2 } + t ^ { 3 } \mathbf { a } _ { 3 } + t ^ { 4 } \mathbf { a } _ { 4 } + t ^ { 5 } \mathbf { a } _ { 5 } } \\ { \mathbf { v } = \mathbf { a } _ { 1 } + 2 t \mathbf { a } _ { 2 } + 3 t ^ { 2 } \mathbf { a } _ { 3 } + 4 t ^ { 3 } \mathbf { a } _ { 4 } + 5 t ^ { 4 } \mathbf { a } _ { 5 } } \end{array}
@@ -449,7 +457,7 @@ The we write the sum of these equations as
 	{ \mathbf { r } _ { 3 } = \mathbf { r } _ { 2 } - \Delta t _ { 32 } \mathbf { a } _ { 1 } + \Delta t _ { 32 } ^ { 2 } \mathbf { a } _ { 2 } - \Delta t _ { 32 } ^ { 3 } \mathbf { a } _ { 3 } + \Delta t _ { 32 } ^ { 4 } \mathbf { a } _ { 1 } - \Delta t _ { 32 } ^ { 5 } \mathbf { a } _ { 5 } } \\ 	
 	\end{array}
 	\end{equation}
-	The velocity and accleration vectors may be now written as
+	The velocity and acceleration vectors may be now written as
 	 \begin{equation}
 	 \begin{aligned} \mathbf { v } _ { 2 } & = \mathbf { a } _ { 1 } \\ - \frac { \mu } { r _ { 1 } ^ { 3 } } \mathbf { r } _ { 1 } & = 2 \mathbf { a } _ { 2 } - 6 \Delta t _ { 21 } \mathbf { a } _ { 3 } + 12 \Delta t _ { 21 } ^ { 2 } \mathbf { a } _ { 4 } - 20 \Delta t _ { 21 } ^ { 3 } \mathbf { a } _ { 5 } \\ - \frac { \mu } { r _ { 2 } ^ { 3 } } \mathbf { r } _ { 2 } & = 2 \mathbf { a } _ { 2 } \\ - \frac { \mu } { r _ { 3 } ^ { 3 } } \mathbf { r } _ { 3 } & = 2 \mathbf { a } _ { 2 } + 6 \Delta t _ { 32 } \mathbf { a } _ { 3 } + 12 \Delta t _ { 32 } ^ { 2 } \mathbf { a } _ { 4 } + 20 \Delta t _ { 32 } ^ { 3 } \mathbf { a } _ { 5 } \end{aligned}
 	 \end{equation}
@@ -493,47 +501,89 @@ The we write the sum of these equations as
 	difference in time for the 
 	\fi
 	\section{Analysis of Methods}
+	\subsection{Analysis Process}
 	\textcolor{red}{To Do: Put in Orbital Parameters for the orbit I am using}
-	
-	The first parameter investigated was the separation of position measurements.  Vallado\cite{vallado2007fundamentals} states that Herrick-Gibbs is only accurate for measurements taken within 5 degrees of the mean anomaly, however that seems Dependant on other factors. The other parameter was the noise, how accurate the position measurements were. 
-	
-	The process for each test goes as follows:
+	The orbits that were analyzed came from the following orbital elements:
 	\begin{itemize}
+		\item Inclination (i) of 30 degrees.
+		\item Longitude of the ascending node $(\Omega)$ of 40 degrees.
+		\item Argument of periapsis $(\omega)$ of 70 degrees.
+		\item A periapsis of 7178.1 km. 
+		\item An eccentricity that was varied.
+		\item A true anomaly that was varied.
+	\end{itemize}
+	From these elements the semi major axis and the angular momentum was calculated to get the full set of orbital elements. 
+	
+	The first parameter investigated was the separation of position measurements.  Vallado\cite{vallado2007fundamentals} states that Herrick-Gibbs is only accurate for measurements taken within 5 degrees of the mean anomaly, however that seems dependent on other factors. The other parameter was the noise, how accurate the position measurements were. Cases for a range of eccentricity were run. The processes for each test goes as follows:
+	\begin{enumerate}
 		\item The eccentricity is set and the orbital parameters calculated.
 		\item The distance between measurements measured in degrees is selected from a range. The exact position vectors are calculated.
-		\begin{itemize}
+		\begin{enumerate}
 			\item The noise level is selected from a range. 
-			\begin{itemize}
+			\begin{enumerate}
 				\item A large number of position vectors are generated from the exact position vector, and the noise level.
 				\item The code uses a method of orbital determination to compute the semi major axis corresponding to each ``noisy" position vector. 
 				\item The Root Mean Square error for the computed semi major axis vs the real semi major axis is calculated. 
 
-			\end{itemize}
-				\item The next noise level is selected and the code repeates.
-		\end{itemize}
-		\item The next distance between position measurements is selected.
-	\end{itemize}
+			\end{enumerate}
+				\item The next noise level is selected and the code repeats.
+		\end{enumerate}
+		\item The next distance between position measurements is selected, and the code repeats.
+	\end{enumerate}
 
-	For a perfectly circular orbit the following plots were created.
+	The accuracy of two methods is compared by the Root Mean Square Error of their semi major axis. The Root Mean Square Error is computed by equation \ref{eqn:rmse}
+	\begin{equation}
+	RMSE(\hat{y})=\sqrt{E\left(\left(\hat{y}-y\right)^2\right)}
+	\label{eqn:rmse}
+	\end{equation}
+	Where E is the expected value or the mean, $\hat{y}-y$ is the difference between the expected value and the measured value. 
+	Figure \ref{fig:RMS_MATLAB} shows how this is implemented in MATLAB. 
+		\begin{figure}[H]
+		%\singlespacing
+		\begin{lstlisting}
+		
+		RMSE = sqrt(mean((yhat - y).^2));
+		\end{lstlisting}
+		\caption{Root Mean Square Error Implemented in MATLAB}
+		\label{fig:RMS_MATLAB}
+		%\doublespacing
+	\end{figure}
+	
+	The code that was used to to compare the methods and generate the plots may be seen in the appendix. As hundreds of orbits were compared not all plots can be reasonably fit into this report. Thus only the most relevant figures have been included. The additional plots and their data may be downloaded at the author's website: \url{rpi.edu\~hoddip}.
+	\subsection{Analysis of a circular orbit}
+	The first orbit that was analyzed was a circular orbit using the orbital elements previously listed. The RMS error for Gibbs methods may be seen in figure \ref{fig:circulargibbs}.
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.7\linewidth]{circularGibbs}
 		\caption{RMS error for the semi major axis via Gibbs method for an eccentricity of zero.}
 		\label{fig:circulargibbs}
 	\end{figure}
-
-	\begin{figure}
+		It should be noted that the figure has been cropped to have a Z axis limit of $10^5$ kilometers. This is done so that the color mapping shows the change in the method more clearly. From this figure it can be seen that Gibbs method is incredibly inaccurate for position vectors taken within 10 degrees of each other. This is likely due to the noise attached with the position measurements. Gibbs method is already not intended to work with close position vectors. Thus the error that causes a small problem when the potions vectors are 30 degrees apart causes a much larger problem when the vectors are only one 5 degrees apart. The RMS error with Herrick-Gibbs methods is seen in figure \ref{fig:circularherrickgibbs}.
+		
+	%	\section{NOTE TO PHILIP2}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{circularHerrickGibbs}
 		\caption{RMS error for the semi major axis via Herrick-Gibbs method for an eccentricity of zero.}
 		\label{fig:circularherrickgibbs}
 	\end{figure}
+	
+
+	Unlike Gibbs, Herrick Gibbs excels in the very close range, as it is designed to do. It dipps to it's lowest error at a speration of 10 degrees, twice the range Vallado  \cite{vallado2007fundamentals} said it could be used for. Figure \ref{fig:bestmethodscirc} compares both methods.
+
+%\section{NOTE TO PHILIP}
+%\textcolor{red}{GIBBS is so bad here because the vectors might be close enough that they are within the noise level!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{bestMethodsCirc}
 	\caption{The best possible RMS error for the semi major axis. The red line indicates where Gibbs method becomes better than the Herrick Gibbs Method}
 	\label{fig:bestmethodscirc}
 \end{figure}
+	Figure \ref{fig:bestmethodscirc} shows the lowest error of the two methods. It starts by showing the error of Herrick-Gibbs, then at the red line it transitions over to Gibbs method. From this figure Gibbs method is seen to overtake Herrick-Gibbs at a separation of 15 degrees for low noise levels,while at high noise levels it takes up to 35 degrees of separation for Gibbs method to overtake Herrick-Gibbs.\par 
+	
+	
+	
+	From here a range of eccentricites will be analized. 
 
 	From figure \ref{fig:circulargibbs}, it can be seen that Gibbs method is incredibly inaccurate for position vectors taken within 10 degrees of each other. Herrick-Gibbs however excels in that range. At a low noise level, Gibbs method begins to overtake Herrick Gibbs at a separation of 15 degrees, at a high noise level it takes until 35 degrees of separation for Herrick-Gibbs to be overt taken.
 	
@@ -564,6 +614,8 @@ The we write the sum of these equations as
 	
 	Purpose of this si not so much the mean anamoly change, but the amount of noise and samples?
 	\fi
+	
+	Note that the range is cropped now
 	These results will be used as a baseline
 	
 	\subsection{Analysis of Gibbs Method at various eccentricities}
@@ -612,6 +664,7 @@ The we write the sum of these equations as
 		\caption{Herrick-Gibbs method for an eccentricity of 0.15 vs noise and distance between measurements.}
 		\label{fig:herrickgibbse15}
 	\end{figure}
+\newpage
 	\subsection{Comparison of methods}
 	
 	From the previous sections it can be seen  that Gibbs method improves as the distance between observations increases and Herrick-Gibbs method improves up to a point, then decreases in accuracy. We now compare the methods against each other in the following figures 
@@ -659,7 +712,7 @@ It becomes clear that Gibbs method remains robust as eccentricity increases, whi
 Figure \ref{fig:eccecomp} plots the line where Gibbs method becomes better than Herrick-Gibbs. This provides a more clear demonstration of how as the eccentricity increases, the area  where Herrick-Gibbs is the best method decreases. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{ecceComp}
+	\includegraphics[width=0.7\linewidth]{ecceComp_3}
 	\caption{}
 	\label{fig:eccecomp}
 \end{figure}
@@ -669,6 +722,20 @@ Figure \ref{fig:eccecomp} plots the line where Gibbs method becomes better than 
 
 	
 	\section{Conclusion}
+	Both Gibbs and Herrick-Gibbs method are quite robust to measurement noise. It should be noted that real orbital determination methods take multiple position measurements, obtaining the mean, and lowering the noise level. \par 
+	
+	What is interesting is the effect of Herrick-Gibbs on noisy measurements of nearly circular orbits. At low eccentricities the Herrick-Gibbs performs better than the Gibbs method subject to noise. 
+	
+	At very low levels of position vector separation Gibbs method has an incredibly high level of error. This is 
+	
+	IMPOARTANTE
+	
+	We have verified that the 5 degres works for low nosie.
+	Unlike Tthat other guy we have seen that the eccentricitg of an orbit does have an effect on the range where herrick is better than gibbs
+	
+	
+	
+	
 	\textcolor{red}{ToDo: Finish Conclusions, Upload plots when computer is finished running ,finsh derivation HeckGibb}
 		
 		%--------------------------------------
