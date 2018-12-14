@@ -9,7 +9,9 @@
 
 \documentclass[12pt]{article}
 
-
+\usepackage[demo]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 
 \usepackage{blindtext}
 \usepackage[utf8]{inputenc}
@@ -196,7 +198,7 @@
 	
 	
 	
-		\textcolor{red}{Put a bit more on the other methods}
+		%\textcolor{red}{Put a bit more on the other methods}
 		\subsection{Problem Statement}
 		Of the mentioned methods of preliminary orbit determination, Gibbs and Herrick-Gibbs are two commonly used ones. Gibbs method uses three position measurements that are spaced relatively far apart to solve for the orbital elements. Herrick-Gibbs uses three position measurements that are close together and a Taylor series to solve for the orbital elements. Herrick-Gibbs is recommended for position measurements that are less than 5 degrees apart, and Gibbs should be used for measurements more than 5 degrees apart\cite{vallado2007fundamentals}. However this suggestion does factor in error in the position measurements. Some work has been done on these three position measurement methods \cite{Kaushick}, in this paper we seek to expand on it and add in the effects of orbital eccentricity.
 		
@@ -206,7 +208,7 @@
 
 	%\subsection{Orbit Determination}
 	%
-	\newpage
+	%\newpage
 	\subsection{Gibbs method}
 	Gibbs method was developed by Josiah Willard Gibbs\cite{gibbsBio}, who was famous for his application of vectorized math to thermodynamics. Gibbs method works off having three measurements of the distance to an object at three different times. Thus, assume we have the following position vectors:
 	\begin{equation}
@@ -475,7 +477,7 @@ The we write the sum of these equations as
 	\begin{aligned} \mathbf { v } _ { 2 } = - \Delta t _ { 32 } \left[ \frac { 1 } { \Delta t _ { 21 } \Delta t _ { 31 } } + \frac { \mu } { 12 r _ { 1 } ^ { 3 } } \right] \mathbf { r } _ { 1 } + \left( \Delta t _ { 32 } - \Delta t _ { 21 } \right) & \left[ \frac { 1 } { \Delta t _ { 21 } \Delta t _ { 32 } } + \frac { \mu } { 12 r _ { 2 } ^ { 3 } } \right] \mathbf { r } _ { 2 } \\ + \Delta t _ { 21 } & \frac { 1 } { \Delta t _ { 32 } \Delta t _ { 31 } } + \frac { \mu } { 12 r _ { 3 } ^ { 3 } } ] \mathbf { r } _ { 3 } \end{aligned}
 	\end{equation}
 	
-	\textcolor{red}{To do, expand on this derivation, reverance Vallado}
+	%\textcolor{red}{To do, expand on this derivation, reverance Vallado}
 	\iffalse
 	The derivation of the Herrick-Gibbs method in this section is based off of Vallado's derivation \cite{vallado2007fundamentals}, but the notation has been changed to be consistent with the notation used thus far in this paper. 
 	
@@ -678,6 +680,24 @@ The we write the sum of these equations as
 		\caption{The best possible measurement from either method at an eccentricity of 0.05}
 		\label{fig:bestmethodse05}
 	\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.4\linewidth]{bothMethods_e_05}
+		\caption{Both Gibbs and Herrick-Gibbs at an eccentricity of 0.05}
+		\label{fig:sub1}
+	\end{subfigure}%
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[width=.4\linewidth]{bestMethods_e_05}
+		\caption{Best possible measurement from either method at an eccentricity of 0.05}
+		\label{fig:sub2}
+	\end{subfigure}
+	\caption{Comparison of methods at an eccentricity of 0.05}
+	\label{fig:test}
+\end{figure}
 
 	\begin{figure}[H]
 	\centering
