@@ -175,9 +175,12 @@
 	% ------------------------------------------------------------
 	
 	\newpage
-	\section{Abstract}
-	The purpose of this report is to perform an analysis of the Gibbs and Herrick-Gibbs methods of orbital determination when subject to noise. The methods are explained and their derivations given. They are then computed for a sample orbit at various eccentricities. The Root Mean Square Error of both methods is obtained and the accuracy of the methods compared. 
-	\textcolor{red}{ Do More}
+	\section*{Abstract}
+	The purpose of this report is to perform an analysis of the Gibbs and Herrick-Gibbs methods of orbital determination when subject to noise. The methods are explained and their derivations given. They are then computed for a sample orbit at various eccentricities. The Root Mean Square Error of both methods is obtained and the accuracy of the methods compared. \par 
+	The author would like to express his gratitude to Professor John Christian for his suggestion of this project and his assistance with the methods of orbital determination through out the semester.\par 
+	
+
+	%\textcolor{red}{ Do More}
 	% ------------------------------------------------------------
 	% Introduction
 	% ------------------------------------------------------------
@@ -235,7 +238,7 @@
 	\hat {{ u } } _ { r 2 } = \mathbf { r } _ { 2 } / r _ { 2 }&\hat { \mathrm { C } } _ { 31 } = \left( \mathbf { r } _ { 3 } \times \mathbf { r } _ { 1} \right) / \left\| \mathbf { r } _ { 3 } \times \mathbf { r } _ { 1 } \right\|\\
 	\hat {{ u } } _ { r 3 } = \mathbf { r } _ { 3 } / r _ { 3} & \hat { \mathrm { C } } _ { 12 } = \left( \mathbf { r } _ { 1 } \times \mathbf { r } _ { 2 } \right) / \left\| \mathbf { r } _ { 1} \times \mathbf { r } _ { 2 } \right\|
 	\end{eqnarray}
-	\textcolor{red}{toDO, make these normal fractions, i like those better}
+	%\textcolor{red}{toDO, make these normal fractions, i like those better}
 	
 	To check that all the vectors are co planer as they should be, the dot product of 
 	
@@ -279,6 +282,7 @@
 		and using equation \ref{eqn:cross_wpq}, equation \ref{eqn:new_h} may be rewritten as
 	 \begin{equation}
 	 \mathbf { v } = \frac { \mu } { h } \left( \frac { \hat { \mathbf { w } } \times \mathbf { r } } { r } + e \hat { \mathbf { q } } \right)
+	 \label{eqn:almostDone}
 	 \end{equation}
 	 
 	 The relationship between eccentricity, angular momentum, and position vector may be written as 
@@ -325,23 +329,23 @@
 	\end{eqnarray}
 	From equation \ref{eqn:gotH} the angular momentum may be found from just the position vectors.
 	
-	Because $\hat{ \mathbf { w } }$ was devined as being a unit vector normal to the orbital plane, and $\mathbf{ N }$ and $\mathbf{ D }$ are made up of vectors in the orbital plane then
+	Because $\hat{ \mathbf { w } }$ was defined as being a unit vector normal to the orbital plane, and $\mathbf{ N }$ and $\mathbf{ D }$ are made up of vectors in the orbital plane then
 	\begin{equation}
 	\hat{ \mathbf { w } }=\frac{\mathbf{ N }}{N}=\frac{\mathbf{ D }}{D}
 	\end{equation}
 	
-	Equation \ref{eqn:cross_wpq} may then be writen as
+	Equation \ref{eqn:cross_wpq} may then be written as
 	\begin{equation}
 	\hat { \mathbf { q } } = \frac { ( \mathbf { D } \times \mathbf { e } ) } { D e }
 	\label{eqn:p1}
 	\end{equation}
-	Fuly writing out the numerator:
+	Fully writing out the numerator:
 	
 	\begin{equation}
 	\hat { \mathbf { q } } = \frac { \left[ \left( \mathbf { r } _ { 1 } \times \mathbf { r } _ { 2 } \right) \times \mathbf { e } + \left( \mathbf { r } _ { 2 } \times \mathbf { r } _ { 3 } \right) \times \mathbf { e } + \left( \mathbf { r } _ { 3 } \times \mathbf { r } _ { 1 } \right) \times \mathbf { e } \right] } { D e } 
 	\end{equation}
 	
-	Using the bac-cab vector idendity, the following euqations ar eobtained
+	Using the bac-cab vector identity, the following equations are obtained
 	\begin{equation}
 	( \mathbf { A } \times \mathbf { B } ) \times \mathbf { C }  = \mathbf { B } ( \mathbf { A } \cdot \mathbf { C } ) - \mathbf { A } ( \mathbf { B } \cdot \mathbf { C } )
 	\end{equation}
@@ -349,7 +353,7 @@
 	{ \left( \mathbf { r } _ { 2 } \times \mathbf { r } _ { 3 } \right) \times \mathbf { e } = \mathbf { r } _ { 3 } \left( \mathbf { r } _ { 2 } \cdot \mathbf { e } \right) - \mathbf { r } _ { 2 } \left( \mathbf { r } _ { 3 } \cdot \mathbf { e } \right) } \\ { \left( \mathbf { r } _ { 3 } \times \mathbf { r } _ { 1 } \right) \times \mathbf { e } = \mathbf { r } _ { 1 } \left( \mathbf { r } _ { 3 } \cdot \mathbf { e } \right) - \mathbf { r } _ { 3 } \left( \mathbf { r } _ { 1 } \cdot \mathbf { e } \right) } \\ { \left( \mathbf { r } _ { 1 } \times \mathbf { r } _ { 2 } \right) \times \mathbf { e } = \mathbf { r } _ { 2 } \left( \mathbf { r } _ { 1 } \cdot \mathbf { e } \right) - \mathbf { r } _ { 1 } \left( \mathbf { r } _ { 2 } \cdot \mathbf { e } \right) } 
 	\label{eqn:usedVectId}
 	\end{eqnarray}
-	Instering equation \ref{eqn:eampo} into equation \ref{eqn:usedVectId}  
+	Inserting equation \ref{eqn:eampo} into equation \ref{eqn:usedVectId}  
 	
 	\begin{eqnarray}
 	\left( \mathbf { r } _ { 2 } \times \mathbf { r } _ { 3 } \right) \times \mathbf { e } = \mathbf { r } _ { 3 } \left( \frac { h ^ { 2 } } { \mu } - r _ { 2 } \right) - \mathbf { r } _ { 2 } \left( \frac { h ^ { 2 } } { \mu } - r _ { 3 } \right) = \frac { h ^ { 2 } } { \mu } \left( \mathbf { r } _ { 3 } - \mathbf { r } _ { 2 } \right) + r _ { 3 } \mathbf { r } _ { 2 } - r _ { 2 } \mathbf { r } _ { 3 }\\
@@ -357,7 +361,7 @@
 	\left( \mathbf { r } _ { 1 } \times \mathbf { r } _ { 2 } \right) \times \mathbf { e } = \mathbf { r } _ { 2 } \left( \frac { h ^ { 2 } } { \mu } - r _ { 1 } \right) - \mathbf { r } _ { 1 } \left( \frac { h ^ { 2 } } { \mu } - r _ { 2 } \right) = \frac { h ^ { 2 } } { \mu } \left( \mathbf { r } _ { 2 } - \mathbf { r } _ { 1 } \right) + r _ { 2 } \mathbf { r } _ { 1 } - r _ { 1 } \mathbf { r } _ { 2 }
 	\end{eqnarray}
 	
-\textcolor{red}{	NOte take out the midle part}
+%\textcolor{red}{	NOte take out the midle part}
 
 The we write the sum of these equations as 
 
@@ -367,19 +371,22 @@ The we write the sum of these equations as
 	And equation \ref{eqn:p1} can now be written as 
 	\begin{equation}
 	\hat { \mathbf { q } } = \frac { 1 } { D e } \mathbf { S }
+	\label{eqn:ad2}
 	\end{equation}
-	
-	We can now do
-	
+	Inserting equation \ref{eqn:ad2}into equation \ref{eqn:almostDone} yields equation \ref{eqn:FinalP}. 
+		
 	\begin{equation}
 	\mathbf { v } = \frac { \mu } { h } \left( \frac { \hat { \mathbf { w } } \times \mathbf { r } } { r } + e \hat { \mathbf { q } } \right)=\frac { \mu } { \sqrt { \mu \frac { N } { D } } } \left[ \frac { \frac { D } { D } \times \mathbf { r } } { r } + e \left( \frac { 1 } { D e } \mathbf { S } \right) \right]
+	\label{eqn:FinalP}
 	\end{equation}
-	Cleaning things up
+	
+	Equation \ref{eqn:FinalP} may be simplified to \ref{eqn:f21}
 	
 	\begin{equation}
 	\mathbf { v } = \sqrt { \frac { \mu } { N D } } \left( \frac { \mathbf { D } \times \mathbf { r } } { r } + \mathbf { S } \right)
+	\label{eqn:f21}
 	\end{equation}
-	 Now from this equation the velocity vector may be computed. 
+	 Now from this equation the velocity vector may be computed. From the velocity and position vector, the orbital elements may be computed. 
 	\iffalse
 	\subsubsection{Gibbs method Algorithm}
 	These steps follow the derication og gibbs method from Orbital Mechanics for Engineering Students \cite{curtis2013_gibbs}. A more detailed derivation may be found in the appendix
@@ -502,19 +509,19 @@ The we write the sum of these equations as
 	\fi
 	\section{Analysis of Methods}
 	\subsection{Analysis Process}
-	\textcolor{red}{To Do: Put in Orbital Parameters for the orbit I am using}
+	%\textcolor{red}{To Do: Put in Orbital Parameters for the orbit I am using}
 	The orbits that were analyzed came from the following orbital elements:
-	\begin{itemize}
+	\begin{itemize}\singlespacing
 		\item Inclination (i) of 30 degrees.
 		\item Longitude of the ascending node $(\Omega)$ of 40 degrees.
 		\item Argument of periapsis $(\omega)$ of 70 degrees.
 		\item A periapsis of 7178.1 km. 
 		\item An eccentricity that was varied.
 		\item A true anomaly that was varied.
-	\end{itemize}
+	\end{itemize}\doublespacing
 	From these elements the semi major axis and the angular momentum was calculated to get the full set of orbital elements. 
 	
-	The first parameter investigated was the separation of position measurements.  Vallado\cite{vallado2007fundamentals} states that Herrick-Gibbs is only accurate for measurements taken within 5 degrees of the mean anomaly, however that seems dependent on other factors. The other parameter was the noise, how accurate the position measurements were. Cases for a range of eccentricity were run. The processes for each test goes as follows:
+	The first parameter investigated was the separation of position measurements.  Vallado\cite{vallado2007fundamentals} states that Herrick-Gibbs is only accurate for measurements taken within 5 degrees of the mean anomaly of eachother, however that seems dependent on other factors. The other parameter was the noise, how accurate the position measurements were. Cases for a range of eccentricity were run. The processes for each test goes as follows:
 	\begin{enumerate}
 		\item The eccentricity is set and the orbital parameters calculated.
 		\item The distance between measurements measured in degrees is selected from a range. The exact position vectors are calculated.
@@ -541,7 +548,6 @@ The we write the sum of these equations as
 		\begin{figure}[H]
 		%\singlespacing
 		\begin{lstlisting}
-		
 		RMSE = sqrt(mean((yhat - y).^2));
 		\end{lstlisting}
 		\caption{Root Mean Square Error Implemented in MATLAB}
@@ -552,7 +558,7 @@ The we write the sum of these equations as
 	The code that was used to to compare the methods and generate the plots may be seen in the appendix. As hundreds of orbits were compared not all plots can be reasonably fit into this report. Thus only the most relevant figures have been included. The additional plots and their data may be downloaded at the author's website: \url{rpi.edu\~hoddip}.
 	\subsection{Analysis of a circular orbit}
 	The first orbit that was analyzed was a circular orbit using the orbital elements previously listed. The RMS error for Gibbs methods may be seen in figure \ref{fig:circulargibbs}.
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{circularGibbs}
 		\caption{RMS error for the semi major axis via Gibbs method for an eccentricity of zero.}
@@ -569,7 +575,7 @@ The we write the sum of these equations as
 	\end{figure}
 	
 
-	Unlike Gibbs, Herrick Gibbs excels in the very close range, as it is designed to do. It dipps to it's lowest error at a speration of 10 degrees, twice the range Vallado  \cite{vallado2007fundamentals} said it could be used for. Figure \ref{fig:bestmethodscirc} compares both methods.
+	Unlike Gibbs, Herrick Gibbs excels in the very close range, as it is designed to do. It dips to it's lowest error at a separation of 10 degrees, twice the range Vallado  \cite{vallado2007fundamentals} said it could be used for. Figure \ref{fig:bestmethodscirc} compares both methods.
 
 %\section{NOTE TO PHILIP}
 %\textcolor{red}{GIBBS is so bad here because the vectors might be close enough that they are within the noise level!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!}
@@ -579,13 +585,7 @@ The we write the sum of these equations as
 	\caption{The best possible RMS error for the semi major axis. The red line indicates where Gibbs method becomes better than the Herrick Gibbs Method}
 	\label{fig:bestmethodscirc}
 \end{figure}
-	Figure \ref{fig:bestmethodscirc} shows the lowest error of the two methods. It starts by showing the error of Herrick-Gibbs, then at the red line it transitions over to Gibbs method. From this figure Gibbs method is seen to overtake Herrick-Gibbs at a separation of 15 degrees for low noise levels,while at high noise levels it takes up to 35 degrees of separation for Gibbs method to overtake Herrick-Gibbs.\par 
-	
-	
-	
-	From here a range of eccentricites will be analized. 
-
-	From figure \ref{fig:circulargibbs}, it can be seen that Gibbs method is incredibly inaccurate for position vectors taken within 10 degrees of each other. Herrick-Gibbs however excels in that range. At a low noise level, Gibbs method begins to overtake Herrick Gibbs at a separation of 15 degrees, at a high noise level it takes until 35 degrees of separation for Herrick-Gibbs to be overt taken.
+	Figure \ref{fig:bestmethodscirc} shows the lowest error of the two methods. It starts by showing the error of Herrick-Gibbs, then at the red line it transitions over to Gibbs method. From this figure Gibbs method is seen to overtake Herrick-Gibbs at a separation of 15 degrees for low noise levels,while at high noise levels it takes up to 35 degrees of separation for Gibbs method to overtake Herrick-Gibbs. From here the error associated with both methods over a range of eccentricity will be analyzed.\par 
 	
 	\iffalse
 	
@@ -615,26 +615,24 @@ The we write the sum of these equations as
 	Purpose of this si not so much the mean anamoly change, but the amount of noise and samples?
 	\fi
 	
-	Note that the range is cropped now
-	These results will be used as a baseline
 	
 	\subsection{Analysis of Gibbs Method at various eccentricities}
 	The following plots come from Gibb's method at an eccentricity of $e=0.05,0.1,0.15$
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{gibbs_e_05}
 		\caption{Gibbs method for an eccentricity of 0.05 vs noise and distance between measurements.}
 		\label{fig:gibbse05}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{gibbs_e_1}
 	\caption{Gibbs method for an eccentricity of 0.1 vs noise and distance between measurements.}
 	\label{fig:gibbse1}
 \end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{gibbs_e_15}
 	\caption{Gibbs method for an eccentricity of 0.15 vs noise and distance between measurements.}
@@ -644,21 +642,21 @@ The we write the sum of these equations as
 	\newpage
 	\subsection{Analysis of Herrick-Gibbs Method at various eccentricities}
 		The following plots come from Herrick-Gibb's method at an eccentricity of $e=0.05,0.1,0.15$
-		\begin{figure}
+		\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{herrickgibbs_e_05}
 		\caption{Herrick-Gibbs method for an eccentricity of 0.05 vs noise and distance between measurements.}
 		\label{fig:herrickgibbse05}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{herrickgibbs_e_1}
 		\caption{Herrick-Gibbs method for an eccentricity of 0.1 vs noise and distance between measurements.}
 		\label{fig:herrickgibbse1}
 	\end{figure}
 	
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{herrickgibbs_e_15}
 		\caption{Herrick-Gibbs method for an eccentricity of 0.15 vs noise and distance between measurements.}
@@ -668,20 +666,20 @@ The we write the sum of these equations as
 	\subsection{Comparison of methods}
 	
 	From the previous sections it can be seen  that Gibbs method improves as the distance between observations increases and Herrick-Gibbs method improves up to a point, then decreases in accuracy. We now compare the methods against each other in the following figures 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{bothMethods_e_05}
 		\caption{Both Gibbs and Herrick-Gibbs at an eccentricity of 0.05}
 		\label{fig:bothmethodse05}
 	\end{figure}
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{bestMethods_e_05}
 		\caption{The best possible measurement from either method at an eccentricity of 0.05}
 		\label{fig:bestmethodse05}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bothMethods_e_1}
 	\caption{Both Gibbs and Herrick-Gibbs at an eccentricity of 0.1}
@@ -706,22 +704,38 @@ The we write the sum of these equations as
 	\label{fig:bestmethodse15}
 \end{figure}
 
-It becomes clear that Gibbs method remains robust as eccentricity increases, while Herrick-Gibbs does not handle the changes in eccentricity as well. While a circular orbit had Herrick-Gibbs beat Gibbs method for up to 35 degrees between measurements, now Vallado's measurement of 5 degrees seperation has proven accurate for an orbit with an eccentricity of 0.15.\par 
+It becomes clear that Gibbs method remains robust as eccentricity increases, while Herrick-Gibbs does not handle the changes in eccentricity as well. While a circular orbit had Herrick-Gibbs beat Gibbs method for up to 35 degrees between measurements, the results are now approaching Vallado's measurement of 5 degrees separation as the change point.\par 
 
-
-Figure \ref{fig:eccecomp} plots the line where Gibbs method becomes better than Herrick-Gibbs. This provides a more clear demonstration of how as the eccentricity increases, the area  where Herrick-Gibbs is the best method decreases. 
+Figure \ref{fig:eccecomp} plots the line where Gibbs method becomes better than Herrick-Gibbs. This provides a more clear demonstration of how as the eccentricity increases, the area where Herrick-Gibbs is the best method decreases. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{ecceComp_3}
-	\caption{}
+	\caption{Comparison of transition lines against a plot of the error for a circular Gibb's method for reference.}
 	\label{fig:eccecomp}
 \end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{topDownEcce_Comp_3}
+	\caption{Top down view of figure \ref{fig:eccecomp}.}
+	\label{fig:topdowneccecomp3}
+\end{figure}
+
 
 
 
 
 	
 	\section{Conclusion}
+	Both Gibbs and Herrick-Gibbs method are affected by measurement noise. This should be considered when performing preliminary orbit determination. However it should also be noted that real orbital determination methods take multiple position measurements, obtaining the mean, and lowering the noise level. \par 
+	
+	Vallado states that \cite{vallado2007fundamentals} the separation point should be five degrees. However this paper has shown that for measurements subject to measurement error, Herrick-Gibbs performs better than Gibbs over a larger range. Additionally the larger the measurement error, the longer that Herrick-Gibbs is the more accurate method. These findings are backed up Kaushick \cite{Kaushick}'s findings.\par 
+	However unlike Kashick's findings  this paper shown a relation between eccentricity and the range where Herrick-Gibbs performs better than Gibbs method. From figure \ref{fig:topdowneccecomp3} it is clear that the transition line is highly dependent on the orbit's eccentricity. An eccentric orbit will transition in a region twice the size of  Vallado's suggested region, but a nearly circular orbit will transition much further along.
+	\iffalse
+	
+	 seen a relation 
+	
+	
 	Both Gibbs and Herrick-Gibbs method are quite robust to measurement noise. It should be noted that real orbital determination methods take multiple position measurements, obtaining the mean, and lowering the noise level. \par 
 	
 	What is interesting is the effect of Herrick-Gibbs on noisy measurements of nearly circular orbits. At low eccentricities the Herrick-Gibbs performs better than the Gibbs method subject to noise. 
@@ -737,7 +751,7 @@ Figure \ref{fig:eccecomp} plots the line where Gibbs method becomes better than 
 	
 	
 	\textcolor{red}{ToDo: Finish Conclusions, Upload plots when computer is finished running ,finsh derivation HeckGibb}
-		
+		\fi
 		%--------------------------------------
 		% References
 		% -------------------------------------

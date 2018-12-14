@@ -33,8 +33,11 @@ figure
      figure(2)
      for iPhil=1:loopCount
         %line(cell2mat(xLM(iPhil)), cell2mat(yLM(iPhil)), cell2mat(zLM(iPhil)), 'Color', 'r', 'LineWidth', 4);
-        line(cell2mat(xLM(iPhil)), cell2mat(yLM(iPhil)), cell2mat(zLM(iPhil)),'Color',myColorMap(iPhil,:),'LineWidth', 8);
+        line(cell2mat(xLM(iPhil)), cell2mat(yLM(iPhil)), cell2mat(zLM(iPhil)),'Color',myColorMap(iPhil,:),'LineWidth', 2);
         lgndcr(iPhil+iPhilinc)={['e = ',num2str(eArr(iPhil))]};
     end
     legend(lgndcr)
+     ylabel('\sigma (km)')
+    xlabel('$\bigtriangleup$ M (deg)','Interpreter','latex')
+
     grid on
